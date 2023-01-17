@@ -12,5 +12,5 @@
 ## Declaration
 I, Emil Wagman, declare that I am the sole author of the content I add to this repository. <br>
 I, Erik Wigert, declare that I am the sole author of the content I add to this repository. <br>
-
+I, Sami Noroozi, declare that I am the sole author of the content I add to this repository. <br>
 
