@@ -10,7 +10,7 @@
 
 
 ## Declaration
-I, Emil Wagman, declare that I am the sole author of the content I add to this repository.
-I, Erik Wigert, delare that I am the sole author of the content I add to this repository.
+I, Emil Wagman, declare that I am the sole author of the content I add to this repository. <br>
+I, Erik Wigert, delare that I am the sole author of the content I add to this repository. <br>
 
 
