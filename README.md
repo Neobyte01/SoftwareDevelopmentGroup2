@@ -16,3 +16,7 @@ I, Darina Larsen, declare that I am the sole author of the content I add to this
 I, Sami Noroozi, declare that I am the sole author of the content I add to this repository. <br>
 
 
+## Project Ideas
+* Idea 1
+* Idea 2
+* Idea 3
