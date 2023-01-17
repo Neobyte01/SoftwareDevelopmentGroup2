@@ -1,14 +1,14 @@
 ## Project Description
 This project was developed as part of a course in software development.
 
-
+## Contributors
 | Contributors   | Handle           |
 | -------------- | ---------------- |
 | Emil Wagman    | Neobyte01        |
 | Isac Gustafson | Aetpio           |
 | Sami Noroozi   | potatohunter69   |
 | Darina Larsen  | darii99          |
-| Erik Wigert    | Erik W           |
+| Erik Wigert    | ErkWWW           |
 
 
 ## Declaration
