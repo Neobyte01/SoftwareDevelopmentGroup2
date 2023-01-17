@@ -19,6 +19,6 @@ I, Sami Noroozi, declare that I am the sole author of the content I add to this 
 
 
 ## Project Ideas
-* Idea 1
+* Idea 1 : C# App(Xamarin)
 * Idea 2
 * Idea 3
