@@ -20,8 +20,19 @@ I, Isac Gustafsson, declare that I am the sole author of the content I add to th
 
 
 ## Project Ideas
-* Idea 1 : C# App (Xamarin)
-* Idea 2 : C Game (SDL)
-* Idea 3 : C# website (ASP.NET)
-* Idea 4 : C Programming language (c--)
-* Idea 5 : C# Dumb calculator (Windows forms)
+* Desktop Application
+** C# Lighting (LED) Control App (Xamarin)
+** C# Dumb calculator (Windows forms)
+** C# Graphing Calculator (Windows forms)
+* Game
+** C Dice Games (SDL)
+** C# Game of Ur (SDL)
+* Website
+** C# website (ASP.NET)
+*** Restaurant
+*** Clothing Store
+** HTML website (Sublime)
+*** Restaurant
+*** Clothing Store
+* Other
+** C Programming language (c--)
