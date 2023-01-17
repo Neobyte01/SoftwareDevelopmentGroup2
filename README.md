@@ -1,4 +1,6 @@
-# SoftwareDevelopment
+## Project Description
+This project was developed as part of a course in software development.
+
 
 | Contributors   | Handle           |
 | -------------- | ---------------- |
