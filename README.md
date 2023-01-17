@@ -4,9 +4,9 @@
 | -------------- | ---------------- |
 | Emil Wagman    | Neobyte01        |
 | Isac Gustafson | Aetpio           |
-| Sami Noroozi   | darii99          |
-| Darina Larsen  | Erik W           |
-| Erik Wigert    | potatohunter69   |
+| Sami Noroozi   | potatohunter69   |
+| Darina Larsen  | darii99          |
+| Erik Wigert    | Erik W           |
 
 
 ## Declaration
