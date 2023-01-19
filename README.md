@@ -18,6 +18,9 @@ The program is to be built in C.
 ## Build System
 The program will us VSCode as its build system. For now.
 
+## Kanban Board
+The link to the [kanban board](https://github.com/users/Neobyte01/projects/1/views/1) is [here](https://github.com/users/Neobyte01/projects/1/views/1).
+
 ## Declaration
 I, Emil Wagman, declare that I am the sole author of the content I add to this repository. <br>
 I, Erik Wigert, declare that I am the sole author of the content I add to this repository. <br>
