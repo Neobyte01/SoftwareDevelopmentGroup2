@@ -16,7 +16,7 @@ A text-based adventure game.
 The program is to be built in C.
 
 ## Build System
-The program will us VSCode as its build system. For now.
+The program will use VSCode as its build system. For now.
 
 ## Kanban Board
 The link to the [kanban board](https://github.com/users/Neobyte01/projects/1/views/1) is [here](https://github.com/users/Neobyte01/projects/1/views/1).
