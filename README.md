@@ -1,7 +1,7 @@
 # Text adventure game
 
 ## Description
-A text-based adventure game. 
+A text-based adventure RPG game. 
 
 ## Contributors
 | Contributors   | Handle                     |
