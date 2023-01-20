@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "stdio.h": "c",
-        "fmatrix.h": "c",
-        "stdlib.h": "c",
-        "dragon.h": "c",
-        "limits": "c"
-    }
-}
