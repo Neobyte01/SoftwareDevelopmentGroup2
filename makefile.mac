@@ -1,0 +1,2 @@
+compile:
+	clang -g *.c -I include  -o main.exe

@@ -1,0 +1,2 @@
+compile:
+	gcc -g src/**.c -I include  -o main.exe
