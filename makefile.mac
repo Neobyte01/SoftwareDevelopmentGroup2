@@ -1,2 +1,2 @@
 compile:
-	clang -g *.c -I include  -o main.exe
+	clang -g src/**.c -I include  -o main.exe
