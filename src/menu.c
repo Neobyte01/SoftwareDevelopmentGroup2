@@ -1,6 +1,6 @@
 #include "menu.h"
 
-void commandMenu (void) 
+void commandMainMenu (void) 
 {
     
     int answer;
@@ -17,20 +17,20 @@ void commandMenu (void)
     {
         switch (answer)
         {
-        case 1:
-            // Call function to start game.
-            printWIP();
-            break;
-        case 2:
-            // Call function to select file to be loaded.
-            printWIP();
-            break;
-        case -1:
-            i = 1;
-            break;
-        default:
-            puts ("\nPlease enter a valid input!\n");
-            break;
+            case 1:
+                // Call function to start game.
+                printWIP();
+                break;
+            case 2:
+                // Call function to select file to be loaded.
+                printWIP();
+                break;
+            case -1:
+                i = 1;
+                break;
+            default:
+                puts ("\nPlease enter a valid input!\n");
+                break;
         }
         if (i == 0) {
             system("cls");
