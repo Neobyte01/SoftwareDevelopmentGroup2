@@ -34,10 +34,13 @@ typedef struct player{
 
 // This function initiates the player for the current session
 // Variables to be added: pointer to current room, and int coordinates in that room.
-player* createPlayer(item** items);
+player* createPlayer(item**);
 
 // This function equips an item to the player, adding it to the list of the player's items and increasing the player's stats
-void equipItem(item* equip, player* pPtr);
+void equipItem(item*, player*);
+
+// This function will free the pointer from memory
+void freePlayer(player*);
 
 
 #endif

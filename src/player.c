@@ -21,7 +21,7 @@ player* createPlayer(item** items)
     {
         equipItem(pPtr->items[i], pPtr);
     }
-
+    
     return(pPtr);
 }
 
@@ -58,3 +58,6 @@ void equipItem(item* equip, player* pPtr)
     pPtr->items[pPtr->noItems - 1] = equip;
 }
 
+void freePlayer(player* pPtr) {
+    free(pPtr);
+}

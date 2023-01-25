@@ -4,6 +4,6 @@
 void main (void) {
     
     printMainMenu();
-    commandMenu();
+    commandMainMenu();
 
 }
