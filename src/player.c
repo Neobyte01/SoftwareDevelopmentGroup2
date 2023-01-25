@@ -21,7 +21,7 @@ player* createPlayer(item** items)
     {
         equipItem(pPtr->items[i], pPtr);
     }
-    
+
     return(pPtr);
 }
 
@@ -56,6 +56,11 @@ void equipItem(item* equip, player* pPtr)
 
     // Add item to list of equipped items by player
     pPtr->items[pPtr->noItems - 1] = equip;
+}
+
+int damagePlayer(player* pPtr, int x) {
+    pPtr->currentHP = pPtr->currentHP - x;
+    return(pPtr->currentHP);
 }
 
 void freePlayer(player* pPtr) {
