@@ -42,5 +42,8 @@ void equipItem(item*, player*);
 // This function will free the pointer from memory
 void freePlayer(player*);
 
+// This function deals damage to a player equal to the integer argument. The function then returns the current hit points of the player.
+int damagePlayer(player*, int);
+
 
 #endif
