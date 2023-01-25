@@ -2,14 +2,13 @@
 #include<stdio.h>
 
 
-enum moves { 
+typedef enum Move{
+
     Left,
-    Right,
+    Rigth,
     Up,
-    Down
-}moves; 
+    Down,
+}Move; 
 
-
-
-
+ 
 
