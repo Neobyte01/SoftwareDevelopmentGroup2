@@ -7,8 +7,9 @@ void monsterAction(player *player, monster *monster);
 
 bool combat(player *player, monster *monster)
 {
+    system("cls");
     bool combatFinished = false;
-    printf("\nCombat has begun!\n\n");
+    printf("\nCombat has commenced!\n\n");
     while(!combatFinished)      //Combat loop, should initiative be decided by DEX-stat? Should it always be player first?
     {
         printCombatMenu();                                  // Roughly implemented, should it be part of the loop?
@@ -20,6 +21,7 @@ bool combat(player *player, monster *monster)
         if(player->currentHP <= 0) combatFinished = true;
     }
 
+    system("cls");
     if(player->currentHP <= 0) return false;    // Player died during combat
     return true;                                // Player survived combat
 }
