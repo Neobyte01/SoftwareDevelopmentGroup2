@@ -1,2 +1,8 @@
-compile:
-	clang -g src/**.c -I include  -o main.exe
+compile_src:
+	clang -g src/**.c main.c -I include -o main.exe
+
+compile_tests:
+	clang -D TEST -g src/**.c tests/**.c main.c -I include -o main.exe
+
+run:
+	./main.exe

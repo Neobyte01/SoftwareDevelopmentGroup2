@@ -1,2 +1,8 @@
-compile:
-	gcc -g src/**.c -I include  -o main.exe
+compile_src:
+	gcc -g src/**.c main.c -I include -o main.exe
+
+compile_tests:
+	gcc -D TEST -g src/**.c tests/**.c main.c -I include -o main.exe
+
+run:
+	./main.exe

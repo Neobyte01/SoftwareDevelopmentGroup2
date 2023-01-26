@@ -1,9 +1,7 @@
-#include <stdio.h>
+#include "game.h"
 #include "menu.h"
 
-void main (void) {
-    
+void run_game() {
     printMainMenu();
     commandMenu();
-
 }
