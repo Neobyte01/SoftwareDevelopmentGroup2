@@ -35,22 +35,12 @@ To install on macos we'll be using homebrew (brew)
     ...running instructions
 
 ## Running instructions
-Will compile and run the code.
 
-### Windows
-    make win
+### Compile and run program
+    make run
 
-### Mac
-    make mac
-
-## Testing instructions
-Will compile and run the test code.
-
-### Windows
-    make win-test
-
-### Mac
-    make mac-test
+### Compile and run tests
+    make test
 
 
 ## Kanban Board
