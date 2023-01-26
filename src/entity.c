@@ -1,24 +1,25 @@
 #include "entity.h"
 
-entity* createEntity(char name[10], int HP, int DMG, int DEF, int DEX)
+entity* createEntity(char name[10], char beh[5], char type, int HP, int DMG, int DEF, int DEX)
 {
     // Create pointer to entity in memory
     entity* ePtr = (entity*) malloc(sizeof(struct entity));
 
-    strcpy(name, ePtr->name);
+    // Assign integer values
     ePtr->maxHP = HP;
     ePtr->currentHP = ePtr->maxHP;
     ePtr->DMG = DMG;
     ePtr->DEF = DEF;
     ePtr->DEX = DEX;
 
-    strcpy(NULL, ePtr->type);
-    strcpy(NULL, ePtr->behaviour);
+    // Assign character values
+    strcpy(name, ePtr->name);
+    ePtr->type = type;
+    strcpy(beh, ePtr->behaviour);
     strcpy(NULL, ePtr->description);
 
     // ePtr->room = room;
-    // ePtr->posX = x;
-    // ePtr->posY = y;
+    // ePtr->pos = pos;
 
     return(ePtr);
 }
@@ -26,6 +27,25 @@ entity* createEntity(char name[10], int HP, int DMG, int DEF, int DEX)
 void freeEntity(entity* ePtr)
 {
     free(ePtr);
+}
+
+void printDesc(entity* item) {
+    system("cls");
+    printf(item->description);
+    printf("Press any button to return");
+    scanf("");
+}
+
+void attachEntity(entity* primary, entity* secondary) {
+    
+    primary->maxHP += secondary->maxHP;
+    primary->currentHP += secondary->currentHP;
+    primary->DMG += secondary->DMG;
+    primary->DEF += secondary->DEF;
+    primary->DEX += secondary->DEX;
+
+    primary->attached[primary->num] = secondary;
+    primary->num++;
 }
 
 void commandItemMenu(entity** items) {
@@ -48,7 +68,7 @@ void commandItemMenu(entity** items) {
             i = 1;
         }
         else if (answer >= 1 && answer <= noOfItems) {
-            printEntity(items[answer - 1]);
+            printDesc(items[answer - 1]);
         }
         else {
             puts ("\nPlease enter a valid input!\n");
@@ -74,7 +94,3 @@ void printItemMenu(entity** items, int num) {
     }
 }
 
-void printEntity(entity* item) {
-    printf(item->description);
-    puts("");
-}
