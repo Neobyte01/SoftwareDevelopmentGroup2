@@ -1,4 +1,5 @@
 #ifdef TEST
+
 #include "tests/test.h"
 
 int main(void) {
@@ -6,6 +7,7 @@ int main(void) {
 }
 
 #else
+
 #include "game.h"
 
 int main(void) {

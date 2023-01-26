@@ -1,6 +1,6 @@
-/vscode
+./vscode
 
 .DS_Store
 
-main.exe
-/main.exe.dSYM
+/main.exe
+/main.exe.dSYM/

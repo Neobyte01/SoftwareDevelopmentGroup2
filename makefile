@@ -1,11 +1,14 @@
-win: 
-	make -f makefile.win compile_src run
+ifeq ($(OS),Windows_NT)
+    CC := gcc
+else
+    UNAME_S := $(shell uname -s)
+    ifeq ($(UNAME_S),Darwin)
+        CC := clang
+    endif
+endif
 
-win-test:
-	make -f makefile.win compile_tests run
+run:
+	$(CC) -g src/**.c main.c -I include -o main.exe && ./main.exe
 
-mac:
-	make -f makefile.mac compile_src run
-
-mac-test:
-	make -f makefile.mac compile_tests run
+test:
+	$(CC) -D TEST -g src/**.c tests/**.c main.c -I include -o main.exe && ./main.exe
