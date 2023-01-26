@@ -1,4 +1,5 @@
 #include "menu.h"
+#include "combat.h"
 
 void commandMainMenu (void) 
 {
@@ -12,7 +13,6 @@ void commandMainMenu (void)
     puts("");
 
     int i = 0;
-
     while (i == 0) 
     {
         switch (answer)
@@ -47,7 +47,7 @@ void commandMainMenu (void)
 void printMainMenu(void) 
 {
     printf("------------------------------------------\n Menu \n------------------------------------------\n");
-    printf("1: Start Game.\n2: Load Save.\n-1: Quit\n------------------------------------------\n\n");
+    printf("1: Start Game.\n2: Load Save.\n3: Initiate combat. \n-1: Quit\n------------------------------------------\n\n");
 }
 
 void exitPrint(void)
