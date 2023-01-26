@@ -4,6 +4,10 @@
 void printCombatMenu();
 void playerAction(player *player, monster *monster, bool *combatFinished);
 void monsterAction(player *player, monster *monster);
+void resolvePlayerAttack(player *player, monster *monster, bool *combatFinished);
+void resolveHide(player *player, monster *monster, bool *combatFinished);
+void resolveFlee(player *player, monster *monster, bool *combatFinished);
+void resolveItemUse(player *player, monster *monster, bool *combatFinished);
 
 bool combat(player *player, monster *monster)
 {
@@ -20,8 +24,6 @@ bool combat(player *player, monster *monster)
         }
         if(player->currentHP <= 0) combatFinished = true;
     }
-
-    system("cls");
     if(player->currentHP <= 0) return false;    // Player died during combat
     return true;                                // Player survived combat
 }
@@ -30,7 +32,7 @@ bool combat(player *player, monster *monster)
 // Helper functions
 void printCombatMenu()
 {
-    printf("--- Choose your Action ---\n  1. Attack\n  2. Hide\n  3. Flee\n  4. Use Item\n--------------------------");
+    printf("--- Choose your Action ---\n  1. Attack\n  2. Hide\n  3. Flee\n  4. Use Item\n--------------------------\n");
 }
 
 void playerAction(player *player, monster *monster, bool *combatFinished)     // WIP, will see changes as further details are decided
@@ -47,40 +49,22 @@ void playerAction(player *player, monster *monster, bool *combatFinished)     //
         switch(answer)
         {
         case 1:
-            if(player->DMG - monster->DEF > 0)  // If the attack goes through the monsters defense...
-            {
-                monster->currentHP -= (player->DMG - monster->DEF);     // Can currentHP be unsigned?
-                printf("You wounded the monster!\n");
-                if(monster->currentHP <= 0)
-                {
-                    printf("The monster has perished!");
-                    *combatFinished = true;
-                    // Trigger monster death effect (Respawn, deal damage to player, resist death?), 
-                    // requires discussion and implementetation of monster
-                }
-                i = 1;
-                break;
-            }else   // Attack is too weak...
-            {
-                printf("Your attack had no effect!\n");     // Should an attack always deal some minor damage (1 or more?)?
-                i = 1;
-                break;
-            }
+            resolvePlayerAttack(player, monster, combatFinished);
+            i = 1;
+            break;
         case 2:
             //Hiding logic goes here, requires further discussion about room types
-            printf("Pardon the dust, this feature is not implemented yet (Hiding).\n");
-            *combatFinished = true;
+            resolveHide(player, monster, combatFinished);
             i = 1;
             break;
         case 3:
             //Flee logic goes here, requires grid movement system
-            printf("Pardon the dust, this feature is not implemented yet (Flee).\n");
-            *combatFinished = true;
+            resolveFlee(player, monster, combatFinished);
             i = 1;
             break;
         case 4:
             //Item logic goes here, requires further discussions about item types/abilities
-            printf("Pardon the dust, this feature is not implemented yet (Items).\n");
+            resolveItemUse(player, monster, combatFinished);
             i = 1;
             break;
         default:
@@ -90,6 +74,43 @@ void playerAction(player *player, monster *monster, bool *combatFinished)     //
     }
 }
 
+void resolvePlayerAttack(player *player, monster *monster, bool *combatFinished)
+{
+    if(player->DMG - monster->DEF > 0)  // If the attack goes through the monsters defense...
+    {
+        monster->currentHP -= (player->DMG - monster->DEF);     // Can currentHP be unsigned?
+        printf("You wounded the monster!\n");
+        if(monster->currentHP <= 0)
+        {
+            printf("The monster has perished!\n");
+            *combatFinished = true;
+            // Trigger monster death effect (Respawn, deal damage to player, resist death?), 
+            // requires discussion and implementetation of monster
+        }
+    }else   // Attack is too weak...
+    {
+        printf("Your attack had no effect!\n");     // Should an attack always deal some minor damage (1 or more?)?
+    }
+}
+
+void resolveHide(player *player, monster *monster, bool *combatFinished)
+{
+    printf("Pardon the dust, this feature is not implemented yet (Hide).\n");
+    *combatFinished = true;
+}
+
+void resolveFlee(player *player, monster *monster, bool *combatFinished)
+{
+    printf("Pardon the dust, this feature is not implemented yet (Flee).\n");
+    *combatFinished = true;
+}
+
+void resolveItemUse(player *player, monster *monster, bool *combatFinished)
+{
+    printf("Pardon the dust, this feature is not implemented yet (Items).\n");
+    *combatFinished = true;
+}
+
 void monsterAction(player *player, monster *monster)    // WIP, will see changes as further details are decided
 {
     // Discussion needed, what actions should the monster take? Always attack, always run away, 
@@ -97,3 +118,4 @@ void monsterAction(player *player, monster *monster)    // WIP, will see changes
     
    printf("Pardon the dust, this feature is not implemented yet (Monster Action).\n");
 }
+
