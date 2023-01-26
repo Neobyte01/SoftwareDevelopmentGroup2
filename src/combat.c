@@ -9,20 +9,34 @@ void resolveHide(entity *player, entity *monster, bool *combatFinished);
 void resolveFlee(entity *player, entity *monster, bool *combatFinished);
 void resolveItemUse(entity *player, entity *monster, bool *combatFinished);
 
-bool combat(entity *player, entity *monster)
+bool combat(entity *player, entity *monster, int testFlag)
 {
-    system("cls");
     bool combatFinished = false;
-    printf("\nCombat has commenced!\n\n");
-    while(!combatFinished)      //Combat loop, should initiative be decided by DEX-stat? Should it always be player first?
+    switch(testFlag)
     {
-        printCombatMenu();                                  // Roughly implemented, should it be part of the loop?
-        playerAction(player, monster, &combatFinished);     // Begun, WIP
-        if(monster->currentHP > 0 && !combatFinished)
-        {
-        monsterAction(player, monster);                     // Not started
-        }
-        if(player->currentHP <= 0) combatFinished = true;
+        case 0: // Normal operation, no tests performed
+            system("cls");
+            printf("\nCombat has commenced!\n\n");
+            while(!combatFinished)      //Combat loop, should initiative be decided by DEX-stat? Should it always be player first?
+            {
+                printCombatMenu();                                  // Roughly implemented, should it be part of the loop?
+                playerAction(player, monster, &combatFinished);     // Begun, WIP
+                if(monster->currentHP > 0 && !combatFinished)
+                {
+                    monsterAction(player, monster);                 // Not started
+                }
+                if(player->currentHP <= 0) combatFinished = true;
+                break;
+            }
+        case 1: // Testing Attack-option (Player kills Monster)
+            while(!combatFinished)
+            {
+                resolvePlayerAttack(player, monster, &combatFinished);
+            }
+            break;
+        default:
+            printf("Invalid testFlag was set, please try again!\n");
+            break;
     }
     if(player->currentHP <= 0) return false;    // Player died during combat
     return true;                                // Player survived combat
