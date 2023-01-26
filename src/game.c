@@ -3,5 +3,5 @@
 
 void run_game() {
     printMainMenu();
-    commandMenu();
+    commandMainMenu();
 }

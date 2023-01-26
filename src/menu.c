@@ -1,6 +1,7 @@
 #include "menu.h"
+#include "combat.h"
 
-void commandMenu (void) 
+void commandMainMenu (void) 
 {
     
     int answer;
@@ -12,25 +13,24 @@ void commandMenu (void)
     puts("");
 
     int i = 0;
-
     while (i == 0) 
     {
         switch (answer)
         {
-        case 1:
-            // Call function to start game.
-            printWIP();
-            break;
-        case 2:
-            // Call function to select file to be loaded.
-            printWIP();
-            break;
-        case -1:
-            i = 1;
-            break;
-        default:
-            puts ("\nPlease enter a valid input!\n");
-            break;
+            case 1:
+                // Call function to start game.
+                printWIP();
+                break;
+            case 2:
+                // Call function to select file to be loaded.
+                printWIP();
+                break;
+            case -1:
+                i = 1;
+                break;
+            default:
+                puts ("\nPlease enter a valid input!\n");
+                break;
         }
         if (i == 0) {
             system("cls");
@@ -47,7 +47,7 @@ void commandMenu (void)
 void printMainMenu(void) 
 {
     printf("------------------------------------------\n Menu \n------------------------------------------\n");
-    printf("1: Start Game.\n2: Load Save.\n-1: Quit\n------------------------------------------\n\n");
+    printf("1: Start Game.\n2: Load Save.\n3: Initiate combat. \n-1: Quit\n------------------------------------------\n\n");
 }
 
 void exitPrint(void)
