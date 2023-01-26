@@ -46,9 +46,6 @@ entity* createEntity(char[10], int, int, int, int);
 // This function will free the entity pointer from memory
 void freeEntity(entity*);
 
-// This function deals damage to an entity equal to the integer argument. The function then returns the current hit points of the entity.
-int damageEntity(entity*, int);
-
 // This function contains the logic to use and enter the item menu
 void commandItemMenu(entity**);
 

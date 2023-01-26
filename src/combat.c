@@ -2,10 +2,10 @@
 
 // Helper function declarations
 void printCombatMenu();
-void playerAction(player *player, monster *monster, bool *combatFinished);
-void monsterAction(player *player, monster *monster);
+void playerAction(entity *player, entity *monster, bool *combatFinished);
+void monsterAction(entity *player, entity *monster);
 
-bool combat(player *player, monster *monster)
+bool combat(entity *player, entity *monster)
 {
     system("cls");
     bool combatFinished = false;
@@ -33,7 +33,7 @@ void printCombatMenu()
     printf("--- Choose your Action ---\n  1. Attack\n  2. Hide\n  3. Flee\n  4. Use Item\n--------------------------");
 }
 
-void playerAction(player *player, monster *monster, bool *combatFinished)     // WIP, will see changes as further details are decided
+void playerAction(entity *player, entity *monster, bool *combatFinished)     // WIP, will see changes as further details are decided
 {
     int answer;
     int i = 0;
@@ -90,7 +90,7 @@ void playerAction(player *player, monster *monster, bool *combatFinished)     //
     }
 }
 
-void monsterAction(player *player, monster *monster)    // WIP, will see changes as further details are decided
+void monsterAction(entity *player, entity *monster)    // WIP, will see changes as further details are decided
 {
     // Discussion needed, what actions should the monster take? Always attack, always run away, 
     // weighted chart giving increased probabilities for certain outcomes dependent on monster type?

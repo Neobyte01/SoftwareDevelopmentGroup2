@@ -28,14 +28,6 @@ void freeEntity(entity* ePtr)
     free(ePtr);
 }
 
-
-int damageEntity(entity* ePtr, int damage)
-{
-    ePtr->currentHP -= damage;
-    return(ePtr->currentHP);
-}
-
-
 void commandItemMenu(entity** items) {
     
     int answer;
