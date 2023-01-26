@@ -35,14 +35,23 @@ To install on macos we'll be using homebrew (brew)
     ...running instructions
 
 ## Running instructions
+Will compile and run the code.
 
 ### Windows
     make win
-    ./main.exe
 
 ### Mac
     make mac
-    ./main.exe
+
+## Testing instructions
+Will compile and run the test code.
+
+### Windows
+    make win-test
+
+### Mac
+    make mac-test
+
 
 ## Kanban Board
 The link to the [kanban board](https://github.com/users/Neobyte01/projects/1/views/1) is [here](https://github.com/users/Neobyte01/projects/1/views/1).
