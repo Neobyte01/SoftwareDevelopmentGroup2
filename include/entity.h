@@ -30,8 +30,6 @@ typedef struct entity{
     // room* room;
     int posX;
     int posY;
-    int noItems;
-    entity** items;
 } entity;
 
 // ---------

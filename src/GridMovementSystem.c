@@ -1,38 +1,26 @@
 
-//#include "gridMovementSystem.h"
-#include "stdio.h"
+#include "gridMovementSystem.h"
 
+void makeMove(Move *newMove, int currentPosition[10][10]){
 
-typedef enum Move{
-
-    Left,
-    Rigth,
-    Up,
-    Down,
-}Move; 
-
-
-
-void makeMove(Move *newMove, currentPosition[][]){
-
-    switch(newMove){
+    switch(*newMove){
 
         case Left:
-        currentPosition = // move left
-        break;
+            // currentPosition = move left
+            break;
 
-         case Right:
-        currentPosition = // move left
-        break;
+        case Right:
+            // currentPosition = move left
+            break;
 
 
         case Up:
-        currentPosition = // move left
-        break;
+            // currentPosition = move left
+            break;
 
         case Down:
-        currentPosition = // move left
-        break;
+            // currentPosition = move left
+            break;
 
 
     }

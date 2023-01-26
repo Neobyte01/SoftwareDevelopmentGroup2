@@ -48,7 +48,7 @@ void commandItemMenu(entity** items) {
             i = 1;
         }
         else if (answer >= 1 && answer <= noOfItems) {
-            printItem(items[answer - 1]);
+            printEntity(items[answer - 1]);
         }
         else {
             puts ("\nPlease enter a valid input!\n");
