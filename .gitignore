@@ -10,4 +10,4 @@ main
 *.profraw
 
 **.gcno
-**.gcad
+**.gcda
