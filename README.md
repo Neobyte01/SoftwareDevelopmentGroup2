@@ -19,9 +19,10 @@ The program is to be built in C. We are using make as our build system of choice
 ## Install instructions
 
 ### Windows
-To install on windos we'll be using chocolatey (choco). Also a copy of Mingw need to be available and containing the gcc compiler.
+To install on windows we'll be using chocolatey (choco) and python.
 
-    choco install make
+    choco install make mingw
+    pip install gcovr
     git clone https://github.com/Neobyte01/SoftwareDevelopmentGroup2
     cd SoftwareDevelopmentGroup2
     ...running instructions

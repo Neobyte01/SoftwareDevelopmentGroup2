@@ -1,6 +1,13 @@
-./vscode
+vscode
 
 .DS_Store
 
-/main.exe
-/main.exe.dSYM/
+*.exe
+main.exe.dSYM/
+
+main
+*.profdata
+*.profraw
+
+**.gcno
+**.gcad
