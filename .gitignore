@@ -1,13 +1,19 @@
 vscode
 
 .DS_Store
-
 *.exe
-main.exe.dSYM/
 
+main.exe.dSYM/
 main
+
+# Code coverage reports
 *.profdata
 *.profraw
-
 **.gcno
 **.gcda
+
+# Linter backup files
+**.c~
+**.h~
+**.c.BAK
+**.h.BAk
