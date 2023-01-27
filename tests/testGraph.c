@@ -3,7 +3,7 @@
 
 
 // Driver program to test the Graph 
-int main()
+void testGraph()
 {
 	int V = 9;
 	struct Graph* graph = createGraph(V);
@@ -30,6 +30,6 @@ int main()
     connectedRooms(roomId, graph);
 
 
-	return 0;
+	
 }
 
