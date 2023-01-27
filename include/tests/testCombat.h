@@ -1,3 +1,3 @@
 #pragma once
 
-void testCombatPlayerKillsMonster(void);
+void testCombat(void);

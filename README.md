@@ -48,6 +48,12 @@ $ cd SoftwareDevelopmentGroup2
 
 ### Compile and run tests
     make test
+    
+### Generate information about code coverage for performed tests
+    make coverage
+    
+### Run linter
+    make lint
 
 
 
