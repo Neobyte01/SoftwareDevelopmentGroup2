@@ -42,6 +42,12 @@ To install on macos we'll be using homebrew (brew)
 
 ### Compile and run tests
     make test
+    
+### Generate information about code coverage for performed tests
+    make coverage
+    
+### Run linter
+    make lint
 
 
 ## Kanban Board
