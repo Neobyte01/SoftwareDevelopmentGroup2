@@ -4,15 +4,16 @@
 
 
 
-// A utility function to create a new adjacency list node i.e. Room 
-struct Room* newRoom(int dest)
+// A utility function to create a new edge
+struct Edge* newRoom(int dest)
 {
-	struct Room* newNode = (struct Room*)malloc(sizeof(struct Room));
+	struct Edge* newNode = (struct Edge*)malloc(sizeof(struct Edge));
 	newNode->dest = dest;
     
 	newNode->next = NULL;
 	return newNode;
 }
+
 
 
 
@@ -26,11 +27,13 @@ struct Graph* createGraph(int V)
 	graph->V = V;
 
 	
-	graph->array = (struct AdjList*)malloc(
-		V * sizeof(struct AdjList));
+	graph->array = (struct Room*)malloc(
+		V * sizeof(struct Room));
 
 	int i;
 	for (i = 0; i < V; ++i)
+		graph->array[i].id = i;
+		graph->array[i].type = Corridor;
 		graph->array[i].head = NULL;
 
 	return graph;
@@ -40,12 +43,12 @@ struct Graph* createGraph(int V)
 
 
 
-// Adds a Room to an undirected graph
+// Adds edge to an undirected graph
 void addEdge(struct Graph* graph, int src, int dest)
 {
 	
-	struct Room* check = NULL;
-	struct Room* newNode = newRoom(dest);
+	struct Edge* check = NULL;
+	struct Edge* newNode = newRoom(dest);
 
 	if (graph->array[src].head == NULL) {
 		newNode->next = graph->array[src].head;
@@ -78,6 +81,15 @@ void addEdge(struct Graph* graph, int src, int dest)
 }
 
 
+void Move(struct Graph* graph){
+
+	// Add som condition later 
+	connectedRooms(curRoomId,graph);
+	printf("Room to Move: ");
+	scanf("%d",&curRoomId);
+
+	printf("the current room is: %d(%s)\n", graph->array[curRoomId].id, RoomNames[graph->array[curRoomId].type]);
+}
 
 
 // A utility function to print the adjacency list
@@ -86,12 +98,8 @@ void printGraph(struct Graph* graph)
 {
 	int v;
 	for (v = 0; v < graph->V; ++v) {
-		struct Room* pCrawl = graph->array[v].head;
-		printf("\nFrom room %d you can go to the following rooms:\n", v);
-		while (pCrawl) {
-			printf("%d,", pCrawl->dest);
-			pCrawl = pCrawl->next;
-		}
+		connectedRooms(v,graph);
+		
 		printf("\n");
 	}
 }
@@ -100,11 +108,14 @@ void printGraph(struct Graph* graph)
 // a utility function to find connected rooms from the room given 
 void connectedRooms(int id, struct Graph* graph){
 
-    struct Room* pCrawl = graph->array[id].head;
-    printf("\nFrom room %d you can go to the following rooms:\n", id);
+    struct Edge* pCrawl = graph->array[id].head;
+    printf("\nFrom room %d you can move to the following rooms:\n", id);
     while (pCrawl) {
-			printf("%d,", pCrawl->dest);
+			printf("%d(%s)\n", pCrawl->dest,RoomNames[graph->array[pCrawl->dest].type]);
 			pCrawl = pCrawl->next;
 		}
 		printf("\n");
 }
+
+
+

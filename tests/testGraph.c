@@ -3,7 +3,7 @@
 
 
 // Driver program to test the Graph 
-void testGraph()
+int main()
 {
 	int V = 9;
 	struct Graph* graph = createGraph(V);
@@ -16,20 +16,20 @@ void testGraph()
 	addEdge(graph, 2, 5);
 	addEdge(graph, 3, 4);
 	addEdge(graph, 3, 6);
+
 	addEdge(graph, 4, 7);
     addEdge(graph, 4, 5);
     addEdge(graph, 5, 8);
     addEdge(graph, 6, 7);
     addEdge(graph, 7, 8);
 	
-	printGraph(graph);
+	// printGraph(graph);
 
-    int roomId; 
-    printf("Enter the roomId to find all connected rooms: ");
-    scanf("%d", &roomId);
-    connectedRooms(roomId, graph);
+   
+    Move(graph);
+  
 
 
-	
+	return 0;
 }
 
