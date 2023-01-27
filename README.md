@@ -3,6 +3,8 @@
 A text-based rougelite (played from the CLI) where the player plays one of several characters stranded on a spaceship infested with monsters, with the end goal of escaping.
 The player will be able to traverse the ship by moving from room to room (grid-based system), and different rooms will have contextually appropriate options to interact with. The player will also be able to gather items/equipment which enables new approaches to problems faced during the escape. The monsters will vary depending on what part of the ship they inhabit and their behaviour will also be different depending on type of monster (Some may be territorial and only patrol a particular part of the map, while others may relentlessly hunt the player).
 
+---
+
 ## Language and build system
 The program is to be built in C and uses no framework to allow the creation of a game. Simply put we're using the input and output functionality builtin to stdio.h for all user interaction. We are using make as our build system of choice to allow easy use of multiple targets assigned to different functions while developing..
 
@@ -39,23 +41,33 @@ $ brew install make llvm gnu-indent
 $ git clone https://github.com/Neobyte01/SoftwareDevelopmentGroup2
 $ cd SoftwareDevelopmentGroup2
 ```
-
+from a terminal. From there you can run the program via make (descibed in our running instructions).
 
 ## Running instructions
 
-### Compile and run program
-    make run
+The make instructions (targets) for handling this project. Works for both Macos and Windows.
 
-### Compile and run tests
-    make test
-    
-### Generate information about code coverage for performed tests
-    make coverage
-    
-### Run linter
-    make lint
+*Compile and run program*
+```
+$ make run
+```
 
+*Compile and run tests*
+```
+$ make test
+```
 
+*Generate information about code coverage for performed tests*
+```    
+$ make coverage
+```
+
+*Run linter*
+```
+$ make lint
+```
+
+---
 
 ## Contributors
 | Contributors   | Handle                     |
