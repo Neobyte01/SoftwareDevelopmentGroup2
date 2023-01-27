@@ -2,8 +2,8 @@ ifeq ($(OS),Windows_NT)
     CC := gcc
 
 coverage:
-	$(CC) --coverage -g -o0 -D TEST -g src/**.c tests/**.c main.c -I include -o main
-	./main
+	$(CC) --coverage -g -o0 -D TEST -g src/**.c tests/**.c main.c -I include -o bin/main
+	./bin/main
 	gcovr
 
 else
@@ -12,19 +12,22 @@ else
 		CC := clang
 
 coverage:
-	$(CC) -fprofile-instr-generate -fcoverage-mapping -D TEST src/**.c tests/**.c main.c -I include -o main
-	./main 
-	xcrun llvm-profdata merge -sparse main.profraw -o main.profdata
-	xcrun llvm-cov report ./main -instr-profile=main.profdata    
+	$(CC) -fprofile-instr-generate -fcoverage-mapping -D TEST src/**.c tests/**.c main.c -I include -o bin/main
+	./bin/main 
+	xcrun llvm-profdata merge -sparse bin/main.profraw -o bin/main.profdata
+	xcrun llvm-cov report .bin//main -instr-profile=bin/main.profdata    
 
 	endif
 
 endif
 
 run:
-	$(CC) -g src/**.c main.c -I include -o main.exe
-	./main.exe
+	$(CC) -g src/**.c main.c -I include -o bin/main.exe
+	./bin/main.exe
 
 test:
-	$(CC) -D TEST -g src/**.c tests/**.c main.c -I include -o main.exe 
-	./main.exe
+	$(CC) -D TEST -g src/**.c tests/**.c main.c -I include -o bin/main.exe 
+	./bin/main.exe
+
+lint:
+	indent -kr -ut -ts4 src/**.c tests/**.c include/**.h include/tests/**.h main.c 
