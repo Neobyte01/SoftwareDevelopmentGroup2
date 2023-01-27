@@ -5,6 +5,6 @@
 
 void test_program() {
     printf("Testing program...\n");
-    testCombatPlayerKillsMonster();
+    testCombat();
     printf("Done!\n");
 }

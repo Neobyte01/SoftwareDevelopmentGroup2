@@ -8,35 +8,29 @@ void resolvePlayerAttack(entity *player, entity *monster, bool *combatFinished);
 void resolveHide(entity *player, entity *monster, bool *combatFinished);
 void resolveFlee(entity *player, entity *monster, bool *combatFinished);
 void resolveItemUse(entity *player, entity *monster, bool *combatFinished);
+void performTest(entity *player, entity *monster, bool *combatFinished, int testFlag);
 
 bool combat(entity *player, entity *monster, int testFlag)
 {
     bool combatFinished = false;
-    switch(testFlag)
+    if(testFlag == 0)   // Normal operation, no tests performed
     {
-        case 0: // Normal operation, no tests performed
-            system("cls");
-            printf("\nCombat has commenced!\n\n");
-            while(!combatFinished)      //Combat loop, should initiative be decided by DEX-stat? Should it always be player first?
+        system("cls");
+        printf("\nCombat has commenced!\n\n");
+        while(!combatFinished)      //Combat loop, should initiative be decided by DEX-stat? Should it always be player first?
+        {
+            printCombatMenu();                                  // Roughly implemented, should it be part of the loop?
+            playerAction(player, monster, &combatFinished);     // Begun, WIP
+            if(monster->currentHP > 0 && !combatFinished)
             {
-                printCombatMenu();                                  // Roughly implemented, should it be part of the loop?
-                playerAction(player, monster, &combatFinished);     // Begun, WIP
-                if(monster->currentHP > 0 && !combatFinished)
-                {
-                    monsterAction(player, monster);                 // Not started
-                }
-                if(player->currentHP <= 0) combatFinished = true;
-                break;
+                monsterAction(player, monster);                 // Not started
             }
-        case 1: // Testing Attack-option (Player kills Monster)
-            while(!combatFinished)
-            {
-                resolvePlayerAttack(player, monster, &combatFinished);
-            }
+            if(player->currentHP <= 0) combatFinished = true;
             break;
-        default:
-            printf("Invalid testFlag was set, please try again!\n");
-            break;
+        }
+    }else // Perform unit tests
+    {
+        performTest(player, monster, &combatFinished, testFlag);
     }
     if(player->currentHP <= 0) return false;    // Player died during combat
     return true;                                // Player survived combat
@@ -92,7 +86,7 @@ void resolvePlayerAttack(entity *player, entity *monster, bool *combatFinished)
 {
     if(player->DMG - monster->DEF > 0)  // If the attack goes through the monsters defense...
     {
-        monster->currentHP -= (player->DMG - monster->DEF);     // Can currentHP be unsigned?
+        monster->currentHP -= (player->DMG - monster->DEF);
         printf("You wounded the monster!\n");
         if(monster->currentHP <= 0)
         {
@@ -133,3 +127,28 @@ void monsterAction(entity *player, entity *monster)    // WIP, will see changes 
    printf("Pardon the dust, this feature is not implemented yet (Monster Action).\n");
 }
 
+// Function used for unit testing (WIP)
+void performTest(entity *player, entity *monster, bool *combatFinished, int testFlag)
+{
+    switch(testFlag)
+    {
+        case 1: // Testing Attack-option (Player kills Monster)
+            while(!*combatFinished)
+            {
+                resolvePlayerAttack(player, monster, combatFinished);
+            }
+            break;
+        case 2: // Testing Hide-option (Player hides from Monster)
+            resolveHide(player, monster, combatFinished);
+            break;
+        case 3: // Testing Flee-option (Player flees from Monster)
+            resolveFlee(player, monster, combatFinished);
+            break;
+        case 4: // Testing "Use Items"-option
+            resolveItemUse(player, monster, combatFinished);
+            break;
+        default:
+            printf("Invalid testFlag was set, please try again!\n");
+            break;
+    }
+}
