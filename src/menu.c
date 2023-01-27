@@ -1,7 +1,8 @@
+#include <stdbool.h>
 #include "menu.h"
 #include "combat.h"
 
-void commandMainMenu (void) 
+int commandMainMenu (void) 
 {
     
     int answer;
@@ -13,20 +14,21 @@ void commandMainMenu (void)
     puts("");
 
     int i = 0;
-    while (i == 0) 
+    while (true) 
     {
         switch (answer)
         {
             case 1:
                 // Call function to start game.
-                printWIP();
+                return 1;
                 break;
             case 2:
                 // Call function to select file to be loaded.
                 printWIP();
+                return 2;
                 break;
             case -1:
-                i = 1;
+                return -1;
                 break;
             default:
                 puts ("\nPlease enter a valid input!\n");

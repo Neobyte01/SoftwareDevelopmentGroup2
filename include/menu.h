@@ -13,7 +13,7 @@
 // To start it, do:
 // printMainMenu();
 // commandMainMenu();
-void commandMainMenu (void);
+int commandMainMenu (void);
 
 // This function prints the main menu to the console.
 void printMainMenu (void);
