@@ -1,5 +1,7 @@
 # Text adventure game
 
+![build](https://github.com/github/docs/actions/workflows/build.yml/badge.svg)
+
 A text-based rougelite (played from the CLI) where the player plays one of several characters stranded on a spaceship infested with monsters, with the end goal of escaping.
 The player will be able to traverse the ship by moving from room to room (grid-based system), and different rooms will have contextually appropriate options to interact with. The player will also be able to gather items/equipment which enables new approaches to problems faced during the escape. The monsters will vary depending on what part of the ship they inhabit and their behaviour will also be different depending on type of monster (Some may be territorial and only patrol a particular part of the map, while others may relentlessly hunt the player).
 
