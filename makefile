@@ -21,6 +21,9 @@ coverage:
 
 endif
 
+setup:
+	mkdir bin
+
 run:
 	$(CC) -g src/**.c main.c -I include -o bin/main.exe
 	./bin/main.exe
