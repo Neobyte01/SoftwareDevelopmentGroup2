@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 
 
 // ---------
@@ -23,5 +24,8 @@ void exitPrint(void);
 
 // This function prints a message that a feature is WIP.
 void printWIP(void);
+
+// This function enters a short loop that prints the basic instructions of the game
+void howToMenu(void);
 
 #endif
