@@ -35,14 +35,9 @@ void setup_game() {
         freeEntity(player);
     }
 
-<<<<<<< HEAD
     player = createEntity("Anita Shidd", 0, 0, 10, 0, 2, 4);
     
     // create_map();
-=======
-    player = createEntity("Anita Shidd", "", "P", 10, 0, 2, 4);
-
->>>>>>> 6244d9286669063e78b3c536c09244c1340cfc76
 }
 
 // Main gameplay loop.

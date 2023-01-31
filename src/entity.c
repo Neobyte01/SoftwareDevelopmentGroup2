@@ -1,6 +1,6 @@
 #include "entity.h"
 
-entity* createEntity(char name[10], entityType type, entityBehaviour beh, int HP, int DMG, int DEF, int DEX)
+entity* createEntity(char name[10], enum entityType type, enum entityBehaviour beh, int HP, int DMG, int DEF, int DEX)
 {
     // Create pointer to entity in memory
     entity* ePtr = (entity*) malloc(sizeof(struct entity));

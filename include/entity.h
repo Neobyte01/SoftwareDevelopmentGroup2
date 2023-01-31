@@ -36,8 +36,8 @@ enum entityBehaviour {
 
 typedef struct entity{
     char name[10]; // Name of the entity
-    entityType type; 
-    entityBehaviour behaviour;
+    enum entityType type; 
+    enum entityBehaviour behaviour;
     char description[300]; 
     int currentHP;
     unsigned int maxHP;
@@ -57,7 +57,7 @@ typedef struct entity{
 // This function initiates an entity for the current session
 // Variables to be added: pointer to current room, and current position in that room.
 // Arguments are: Name, Type, Behaviour, Max Hit Points (& Current), Damage, Defense, Dexterity
-entity* createEntity(char[10], entityType, entityBehaviour, int, int, int, int);
+entity* createEntity(char[10], enum entityType, enum entityBehaviour, int, int, int, int);
 
 // This function will free the entity pointer from memory
 void freeEntity(entity*);
