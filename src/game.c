@@ -5,7 +5,6 @@
 #include "entity.h"
 
 entity *player = NULL;
-entity** monsters = NULL;
 
 static void setup_game();
 static void game_loop();
@@ -38,6 +37,7 @@ void setup_game() {
 
     player = createEntity("Anita Shidd", 0, 0, 10, 0, 2, 4);
 
+    entity** monsters = NULL;
     monsters[0] = createEntity("Rabbities", 1, 3, 1, 0, 0, 2);
     
     // create_map();
