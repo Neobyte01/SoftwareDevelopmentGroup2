@@ -3,7 +3,6 @@
 #include "game.h"
 #include "menu.h"
 #include "entity.h"
-#include "map.h"
 
 entity *player = NULL;
 
@@ -37,8 +36,7 @@ void setup_game() {
     }
 
     player = createEntity("Anita Shidd", "", "P", 10, 0, 2, 4);
-    
-    // create_map();
+
 }
 
 // Main gameplay loop.
