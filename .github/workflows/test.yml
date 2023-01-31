@@ -1,5 +1,5 @@
-name: build
-run-name: Build Project
+name: test
+run-name: Test Project
 
 on:
   push:
