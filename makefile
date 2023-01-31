@@ -1,3 +1,5 @@
+UNAME_S := $(shell uname -s)
+
 ifeq ($(OS),Windows_NT)
     CC := gcc
 
@@ -6,10 +8,8 @@ coverage:
 	./bin/main
 	gcovr
 
-else
-	UNAME_S := $(shell uname -s)
-	ifeq ($(UNAME_S),Darwin)
-		CC := clang
+else ifeq ($(UNAME_S),Darwin)
+	CC := clang
 
 coverage:
 	$(CC) -fprofile-instr-generate -fcoverage-mapping -D TEST src/**.c tests/**.c main.c -I include -o bin/main
@@ -17,12 +17,7 @@ coverage:
 	xcrun llvm-profdata merge -sparse bin/main.profraw -o bin/main.profdata
 	xcrun llvm-cov report .bin//main -instr-profile=bin/main.profdata    
 
-	endif
-
 endif
-
-setup:
-	mkdir bin
 
 run:
 	$(CC) -g src/**.c main.c -I include -o bin/main.exe

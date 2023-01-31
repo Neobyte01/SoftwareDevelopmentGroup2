@@ -5,6 +5,7 @@
 #include "entity.h"
 
 entity *player = NULL;
+entity *monsters = NULL;
 
 static void setup_game();
 static void game_loop();
@@ -13,14 +14,17 @@ static void game_loop();
 void run_game() {
     // Game start and reset loop.
     while (true) {
-        printMainMenu();
-        int command = commandMainMenu();
+        // printMainMenu();
+        // int command = commandMainMenu(); 
+
+        int command = 1; // Temporarily bypass menu so it's easier to run the program 
 
         switch (command) {
         case 1:
             setup_game();
+            puts("\nYou find yourself inside the sleeping quarters naked and alone.");            
             game_loop();
-            printf("Ended game. Resetting...\n");
+            puts("\nEnded game. Resetting...");
         case -1:
             exit(0);
         default:
@@ -31,23 +35,25 @@ void run_game() {
 
 // Setup a game
 void setup_game() {
-    if (player != NULL) {
-        freeEntity(player);
-    }
-
-    player = createEntity("Anita Shidd", 0, 0, 10, 0, 2, 4);
-    
     // create_map();
+
+    if (player != NULL) freeEntity(player);
+
+    player = createEntity("Anita Shidd", Player, none);
+    player->DMG = 0;
+    player->DEF = 2;
+
+    // Setup monsters and place them at "random"
 }
 
 // Main gameplay loop.
 void game_loop() {
     while (true) {
-        printf("Running the main game loop\n"); // Temporary message
+        // display_surroundings(player);
+        // perform_action(player);
 
-        // Place the game logic that needs to be run repeatedly
-        // like: the player deciding on a move, monsters moving 
-        // and combat. 
+        // for (monster in monsters) 
+        //     perform_action(monster);
 
         break; // Temporary break
     }

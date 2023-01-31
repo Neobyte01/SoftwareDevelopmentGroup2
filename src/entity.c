@@ -1,27 +1,27 @@
+#include <string.h>
 #include "entity.h"
 
-entity* createEntity(char name[10], enum entityType type, enum entityBehaviour beh, int HP, int DMG, int DEF, int DEX)
+entity* createEntity(char name[10], enum entityType type, enum entityBehaviour beh)
 {
     // Create pointer to entity in memory
     entity* ePtr = (entity*) malloc(sizeof(struct entity));
 
     // Assign integer values
-    ePtr->maxHP = HP;
+    ePtr->maxHP = 10;
     ePtr->currentHP = ePtr->maxHP;
-    ePtr->DMG = DMG;
-    ePtr->DEF = DEF;
-    ePtr->DEX = DEX;
+    ePtr->DMG = 5;
+    ePtr->DEF = 5;
+    ePtr->DEX = 5;
 
     // Assign character values
-    strcpy(name, ePtr->name);
+    // strcpy(name, ePtr->name); 
     ePtr->type = type;
     ePtr->behaviour = beh;
-    strcpy(NULL, ePtr->description);
+    // strcpy(NULL, ePtr->description);
 
-    // ePtr->room = room;
-    // ePtr->pos = pos;
+    ePtr->room = NULL;
 
-    return(ePtr);
+    return (ePtr);
 }
 
 void freeEntity(entity* ePtr)

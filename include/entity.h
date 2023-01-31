@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
+#include "room.h"
 
 // This program should handle the functions regarding entities.
 // Entities can be one of the following:
@@ -46,7 +47,7 @@ typedef struct entity{
     int DEX;
     struct entity** attached; // Attached entities (Items)
     int num; // Number of attached entities
-    // room* room;
+    struct roomStructure* room;
     // int **pos;
 } entity;
 
@@ -57,7 +58,7 @@ typedef struct entity{
 // This function initiates an entity for the current session
 // Variables to be added: pointer to current room, and current position in that room.
 // Arguments are: Name, Type, Behaviour, Max Hit Points (& Current), Damage, Defense, Dexterity
-entity* createEntity(char[10], enum entityType, enum entityBehaviour, int, int, int, int);
+entity* createEntity(char[10], enum entityType, enum entityBehaviour);
 
 // This function will free the entity pointer from memory
 void freeEntity(entity*);
