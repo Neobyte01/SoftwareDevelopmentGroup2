@@ -63,7 +63,6 @@ void printWIP(void)
     printf("This feature has no yet been implemented.\n");
     puts("\n\nPress any button to return to main menu");
     fflush(stdin);
-    getch();
 }
 
 void howToMenu(void)
@@ -105,5 +104,4 @@ void howToMenu(void)
 
     puts("\n\nPress any button to return to main menu");
     fflush(stdin);
-    getch();
 }
