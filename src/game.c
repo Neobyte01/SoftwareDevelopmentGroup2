@@ -49,11 +49,16 @@ void setup_game() {
 // Main gameplay loop.
 void game_loop() {
     while (true) {
-        // display_surroundings(player);
-        // perform_action(player);
+        // if player and monster is in the same room
+        //     combat(player, monster)
+        
+        // else
 
-        // for (monster in monsters) 
-        //     perform_action(monster);
+        //     display_surroundings(player);
+        //     perform_action(player);
+
+        //     for (monster in monsters) 
+        //         perform_action(monster);
 
         break; // Temporary break
     }
