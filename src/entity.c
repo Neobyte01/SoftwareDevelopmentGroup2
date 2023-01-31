@@ -1,6 +1,6 @@
 #include "entity.h"
 
-entity* createEntity(char name[10], char beh[5], char type, int HP, int DMG, int DEF, int DEX)
+entity* createEntity(char name[10], entityType type, entityBehaviour beh, int HP, int DMG, int DEF, int DEX)
 {
     // Create pointer to entity in memory
     entity* ePtr = (entity*) malloc(sizeof(struct entity));
@@ -15,7 +15,7 @@ entity* createEntity(char name[10], char beh[5], char type, int HP, int DMG, int
     // Assign character values
     strcpy(name, ePtr->name);
     ePtr->type = type;
-    strcpy(beh, ePtr->behaviour);
+    ePtr->behaviour = beh;
     strcpy(NULL, ePtr->description);
 
     // ePtr->room = room;

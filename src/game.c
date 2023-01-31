@@ -36,7 +36,7 @@ void setup_game() {
         freeEntity(player);
     }
 
-    player = createEntity("Anita Shidd", "", "P", 10, 0, 2, 4);
+    player = createEntity("Anita Shidd", 0, 0, 10, 0, 2, 4);
     
     // create_map();
 }

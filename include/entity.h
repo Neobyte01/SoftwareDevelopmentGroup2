@@ -13,14 +13,31 @@
 // - Monsters
 // - Items
 
-// -------
-// Structs
-// -------
+// ---------------
+// Structs & Enums
+// ---------------
+
+enum entityType {
+
+    Player,
+    Monster,
+    Item,
+
+};
+
+enum entityBehaviour {
+
+    none,
+    aggresive,
+    stalking,
+    scared,
+    
+};
 
 typedef struct entity{
     char name[10]; // Name of the entity
-    char type; // Type of entity, P for player, M for monster, I for item
-    char behaviour[5]; // Behaviour of the entity, will only matter for monsters
+    entityType type; 
+    entityBehaviour behaviour;
     char description[300]; 
     int currentHP;
     unsigned int maxHP;
@@ -40,7 +57,7 @@ typedef struct entity{
 // This function initiates an entity for the current session
 // Variables to be added: pointer to current room, and current position in that room.
 // Arguments are: Name, Type, Behaviour, Max Hit Points (& Current), Damage, Defense, Dexterity
-entity* createEntity(char[10], char[5], char, int, int, int, int);
+entity* createEntity(char[10], entityType, entityBehaviour, int, int, int, int);
 
 // This function will free the entity pointer from memory
 void freeEntity(entity*);
