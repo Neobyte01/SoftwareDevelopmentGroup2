@@ -1,4 +1,5 @@
 #pragma once
+#include "entity.h"
 
 void player_action(struct entity Player);
 
