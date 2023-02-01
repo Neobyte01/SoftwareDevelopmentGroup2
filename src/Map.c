@@ -1,12 +1,11 @@
-
 //#include "map.h"
-#include "Graph.h"
+//#include "Graph.h"
 
 void Map(){
 
-    struct Graph *graph = createGraph(5);
+    //struct Graph *graph = createGraph(5);
 
-    addEdge(graph, 1, 2); 
+    //addEdge(graph, 1, 2); 
 
     // print("     []      []\n
     //        [][][][][][][]\n
@@ -19,7 +18,7 @@ void Map(){
 
 
 
-int Main(){
+int MapMain(){
 
     Map();
 }
