@@ -25,5 +25,8 @@ void testCombat(void)
     playerSurvived = combat(&p, &m, 4);
     assert(playerSurvived == true);
 
+    printf("<Ensuring that 1 is still equal to 1>");
+    assert(1 == 1);
+
     printf("--- Completed Combat Tests ---\n");
 }
