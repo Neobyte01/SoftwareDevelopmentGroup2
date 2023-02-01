@@ -7,3 +7,11 @@
 #endif
 
 
+
+/*void Map(){
+
+    struct Graph *graph = createGraph(5);
+
+    addEdge(graph, 1, 2); */
+
+/**/

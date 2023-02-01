@@ -1,24 +1,18 @@
 //#include "map.h"
 //#include "Graph.h"
 
-void Map(){
-
-    //struct Graph *graph = createGraph(5);
-
-    //addEdge(graph, 1, 2); 
-
-    // print("     []      []\n
-    //        [][][][][][][]\n
-    //          []  []  []\n
-    //              []  []\n
-    //                []\n")
+#include <stdio.h>
 
 
+
+void mapPrint(){
+
+printf("\n ----GAME MAP----\n\n");
+ printf("     []      []\n");
+ printf("   [][][][][][][]\n");
+ printf("     []  []  []\n");
+ printf("         []  []\n");
+ printf("             []\n");
+    //Map();
 }
 
-
-
-int MapMain(){
-
-    Map();
-}
