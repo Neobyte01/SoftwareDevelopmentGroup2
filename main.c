@@ -15,6 +15,7 @@ main(void)
 int 
 main(void)
 {
+	mapMain();
 	run_game();
 }
 
