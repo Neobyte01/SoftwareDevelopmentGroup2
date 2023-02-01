@@ -15,7 +15,7 @@ main(void)
 int 
 main(void)
 {
-	mapMain();
+	mapPrint();
 	run_game();
 }
 
