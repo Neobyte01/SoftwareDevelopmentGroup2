@@ -8,7 +8,7 @@ The player will be able to traverse the ship by moving from room to room (grid-b
 ---
 
 ## Language and build system
-The program is to be built in C and uses no framework to allow the creation of a game. Simply put we're using the input and output functionality builtin to stdio.h for all user interaction. We are using make as our build system of choice to allow easy use of multiple targets assigned to different functions while developing..
+The program is to be built in C and uses no framework to allow the creation of a game. Simply put we're using the input and output functionality built into stdio.h for all user interaction. We are using make as our build system of choice to allow easy use of multiple targets assigned to different functions while developing.
 
 ## Installation instructions
 
@@ -29,10 +29,10 @@ $ git clone https://github.com/Neobyte01/SoftwareDevelopmentGroup2
 $ cd SoftwareDevelopmentGroup2
 $ make setup
 ```
-from a terminal. If "make setup" tells you that a directory called "bin" already exists, just ignore it. From there you can run the program via make (descibed in our running instructions).
+from a terminal. If "make setup" tells you that a directory called "bin" already exists, just ignore it. From there you can run the program via make (described in our running instructions).
 
 ### Mac
-Installing on macos requires only homebrewto be manually installed. With it we can install everything else we'll need from the terminal.
+Installing on macos requires only homebrew to be manually installed. With it we can install everything else we'll need from the terminal.
 
 Install this first:
 - **Homebrew** - Install from [brew.sh](https://brew.sh/).
@@ -45,7 +45,7 @@ $ git clone https://github.com/Neobyte01/SoftwareDevelopmentGroup2
 $ cd SoftwareDevelopmentGroup2
 $ make setup
 ```
-from a terminal.  If "make setup" tells you that a directory called "bin" already exists, just ignore it. From there you can run the program via make (descibed in our running instructions).
+from a terminal.  If "make setup" tells you that a directory called "bin" already exists, just ignore it. From there you can run the program via make (described in our running instructions).
 
 ## Running instructions
 
