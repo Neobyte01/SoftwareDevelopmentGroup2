@@ -17,6 +17,7 @@ entity* createEntity(char name[10], enum entityType type, enum entityBehaviour b
     // strcpy(name, ePtr->name); 
     ePtr->type = type;
     ePtr->behaviour = beh;
+    ePtr->last_action = CREATED;
     // strcpy(NULL, ePtr->description);
 
     ePtr->room = NULL;

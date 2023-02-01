@@ -1,8 +1,8 @@
 UNAME_S := $(shell uname -s)
 
-ifeq ($(OS),Windows_NT)
-    CC := gcc
+CC := gcc
 
+ifeq ($(OS),Windows_NT)
 coverage:
 	$(CC) --coverage -g -o0 -D TEST -g src/**.c tests/**.c main.c -I include -o bin/main
 	./bin/main

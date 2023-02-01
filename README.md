@@ -43,7 +43,7 @@ $ git clone https://github.com/Neobyte01/SoftwareDevelopmentGroup2
 $ cd SoftwareDevelopmentGroup2
 $ make setup
 ```
-from a terminal.  If "make setup" tells you that a directory called "bin" already exists, just ignore it. From there you can run the program via make (descibed in our running instructions).
+from a terminal. If "make setup" tells you that a directory called "bin" already exists, just ignore it. From there you can run the program via make (descibed in our running instructions).
 
 ## Running instructions
 
