@@ -3,11 +3,23 @@
 #include "actions/types.h"
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
-// Natural language command.
-static void getCommand();
+// Prompt user for input.
+//
+// returns: Integer assigned to selected command.
+static int getCommand();
 
-void playerAction(Entity *player) {
+// Scan user input
+//
+// args:
+// - input: String to scan to.
+static void scanInput(char *input);
+
+// Give users helpful instructions on writing commands.
+static void helpCommand();
+
+void playerAction(Entity *player, int *exitFlag) {
     // - move(entity, directions)
 
     // - search <object>
@@ -21,11 +33,17 @@ void playerAction(Entity *player) {
 
     // - help 
 
-    // ?: ...
+    int command = getCommand();
 
-    // ?: help (HELP, help, hel, he, h) -> gets list of instructions
-
-    // ?: search -> help for search <object>
+    switch (command) {
+        case 1: // exit
+            printf("Exiting to main menu...\n");
+            *exitFlag = 1;
+            break;
+        default: 
+            printf("Error: Command not recongized\n");
+            break;
+    }
 }
 
 void monsterAction(Entity *monster) {
@@ -56,6 +74,53 @@ void monsterAction(Entity *monster) {
     }
 }
 
-void getCommand() {
-    // TODO: implement this function.
+int getCommand() {
+    int command;
+    char *input = malloc(SCAN_INPUT_SIZE);
+
+    while (true) {
+        printf("?: ");
+        scanInput(input);
+
+        if (strcmp(input, "help") == 0) {
+            helpCommand();
+            // Special command that doesn't affect game loop.
+        } else if (strcmp(input, "exit") == 0) {
+            command = 1;
+            break;
+        } else {
+            printf("'%s' is not a recognized command. Type 'help' you're unsure.\n\n", input);    
+        }
+    }
+
+    free(input);
+    return command;
+}
+
+void scanInput(char *input) {
+    fgets(input, SCAN_INPUT_SIZE, stdin);
+
+    // Remove any trailing newline
+    if ((strlen(input) > 0) && (input[strlen(input) - 1] == '\n'))
+        input[strlen(input) - 1] = '\0';
+
+    // Convert to lowercase
+    for(int i = 0; input[i]; i++)
+        input[i] = tolower(input[i]);
+
+    char *p = input;
+    int l = strlen(input);
+
+    // Remove leading/trailing whitespaces
+    while(isspace(p[l - 1])) p[--l] = 0;
+    while(*p && isspace(* p)) ++p, --l;
+    memmove(input, p, l + 1);
+}
+
+void helpCommand() {
+    printf("\nAvailable commands:\n");
+    printf("----------------------------------------------------\n");
+    printf("help: Helpful instructions on how to write commands.\n");
+    printf("exit: Exit back to the main menu.\n");
+    printf("\n");
 }

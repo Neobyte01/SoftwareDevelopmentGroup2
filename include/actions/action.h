@@ -6,6 +6,8 @@
 // of players and monsters throughout the game and acts upon 
 // those decisions.
 
+#define SCAN_INPUT_SIZE 256
+
 // Let player perform natural commands.
 //
 // The general format for user input is like this:
@@ -13,7 +15,8 @@
 //
 // args:
 // - player: Player which performs the action
-void playerAction(Entity *player);
+// - exitFlag: Tells that the user want to exit back to main menu.
+void playerAction(Entity *player, int *exitFlag);
 
 // Let monster decide an action and act upon it.
 //

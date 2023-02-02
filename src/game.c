@@ -45,8 +45,12 @@ void setupGame() {
 }
 
 void gameLoop() {
+    int exit = 0;
+
     while (true) {
-        playerAction(player);
+        playerAction(player, &exit);
+
+        if (exit == 1) return;
 
         for (int i = 0; i < noMonsters; i++)
             monsterAction(monsters[i]);
@@ -61,7 +65,5 @@ void gameLoop() {
 
         //     for (monster in monsters) 
         //         performAction(monster);
-
-        break; // Temporary break
     }
 }
