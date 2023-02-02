@@ -15,7 +15,7 @@
 //
 // args:
 // - player: Player which performs the action
-// - exitFlag: Tells that the user want to exit back to main menu.
+// - exitFlag: (1) when the user want to exit, (0) when not.
 void playerAction(Entity *player, int *exitFlag);
 
 // Let monster decide an action and act upon it.

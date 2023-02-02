@@ -10,7 +10,7 @@
 // returns: Integer assigned to selected command.
 static int getCommand();
 
-// Scan user input
+// Scan user input.
 //
 // args:
 // - input: String to scan to.
