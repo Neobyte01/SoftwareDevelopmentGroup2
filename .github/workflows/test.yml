@@ -15,5 +15,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Project setup
+      run: mkdir bin
+      
+    - name: Compile tests
+      run: gcc -D TEST -g src/**.c tests/**.c main.c -I include -o bin/main.exe 
+    
     - name: Run tests
-      run: make test-combat
+      run: ./bin/main.exe
