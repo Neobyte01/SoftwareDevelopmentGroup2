@@ -2,17 +2,17 @@
 #include <stddef.h>
 #include "game.h"
 #include "menu.h"
-#include "entity.h"
-#include "action.h"
+#include "entities/player.h"
+#include "entities/monsters.h"
+#include "actions/action.h"
 
-entity *player = NULL;
-entity *monsters = NULL;
+// Setup a game
+static void setupGame();
 
-static void setup_game();
-static void game_loop();
+// Main gameplay loop.
+static void gameLoop();
 
-// Initalize and run the game.
-void run_game() {
+void runGame() {
     // Game start and reset loop.
     while (true) {
         // printMainMenu();
@@ -22,10 +22,10 @@ void run_game() {
 
         switch (command) {
         case 1:
-            setup_game();
+            setupGame();
             puts("\nYou find yourself inside the sleeping quarters naked and alone.\n");            
-            game_loop();
-            puts("\nEnded game. Resetting...");
+            gameLoop();
+            puts("\nEnding game...");
         case -1:
             exit(0);
         default:
@@ -34,36 +34,33 @@ void run_game() {
     }
 }
 
-// Setup a game
-void setup_game() {
-    // create_map();
+void setupGame() {
+    // createMap();
 
-    if (player != NULL) freeEntity(player);
+    setupPlayer();
 
-    player = createEntity("Anita Shidd", Player, none);
-    player->DMG = 0;
-    player->DEF = 2;
-
-    // Setup monsters and place them at "random"
+    Entity *blargh = createBlargh();
+    // Place monster at random on map
+    addMonster(blargh);
 }
 
-// Main gameplay loop.
-void game_loop() {
+void gameLoop() {
     while (true) {
-        entity *monster = createEntity("Blurgh", Monster, none);
+        playerAction(player);
 
-        monster_action(monster);
+        for (int i = 0; i < noMonsters; i++)
+            monsterAction(monsters[i]);
 
         // if player and monster is in the same room
         //     combat(player, monster)
         
         // else
 
-        //     display_surroundings(player);
-        //     perform_action(player);
+        //     displaySurroundings(player);
+        //     performAction(player);
 
         //     for (monster in monsters) 
-        //         perform_action(monster);
+        //         performAction(monster);
 
         break; // Temporary break
     }

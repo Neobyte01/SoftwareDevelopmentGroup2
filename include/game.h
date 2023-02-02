@@ -1,3 +1,7 @@
 #pragma once
 
-void run_game();
+// Game library
+// Handles the entire game.
+
+// Start the game.
+void runGame();

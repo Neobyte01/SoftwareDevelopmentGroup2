@@ -1,16 +1,16 @@
 #include "combat.h"
 
 // Helper function declarations
-void printCombatMenu();
-void playerAction(entity *player, entity *monster, bool *combatFinished);
-void monsterAction(entity *player, entity *monster);
-void resolvePlayerAttack(entity *player, entity *monster, bool *combatFinished);
-void resolveHide(entity *player, entity *monster, bool *combatFinished);
-void resolveFlee(entity *player, entity *monster, bool *combatFinished);
-void resolveItemUse(entity *player, entity *monster, bool *combatFinished);
-void performTest(entity *player, entity *monster, bool *combatFinished, int testFlag);
+static void printCombatMenu();
+static void playerAction(Entity *player, Entity *monster, bool *combatFinished);
+static void monsterAction(Entity *player, Entity *monster);
+static void resolvePlayerAttack(Entity *player, Entity *monster, bool *combatFinished);
+static void resolveHide(Entity *player, Entity *monster, bool *combatFinished);
+static void resolveFlee(Entity *player, Entity *monster, bool *combatFinished);
+static void resolveItemUse(Entity *player, Entity *monster, bool *combatFinished);
+static void performTest(Entity *player, Entity *monster, bool *combatFinished, int testFlag);
 
-bool combat(entity *player, entity *monster, int testFlag)
+bool combat(Entity *player, Entity *monster, int testFlag)
 {
     bool combatFinished = false;
     if(testFlag == 0)   // Normal operation, no tests performed
@@ -43,7 +43,7 @@ void printCombatMenu()
     printf("--- Choose your Action ---\n  1. Attack\n  2. Hide\n  3. Flee\n  4. Use Item\n--------------------------\n");
 }
 
-void playerAction(entity *player, entity *monster, bool *combatFinished)     // WIP, will see changes as further details are decided
+void playerAction(Entity *player, Entity *monster, bool *combatFinished)     // WIP, will see changes as further details are decided
 {
     int answer;
     int i = 0;
@@ -82,7 +82,7 @@ void playerAction(entity *player, entity *monster, bool *combatFinished)     // 
     }
 }
 
-void resolvePlayerAttack(entity *player, entity *monster, bool *combatFinished)
+void resolvePlayerAttack(Entity *player, Entity *monster, bool *combatFinished)
 {
     if(player->DMG - monster->DEF > 0)  // If the attack goes through the monsters defense...
     {
@@ -101,25 +101,25 @@ void resolvePlayerAttack(entity *player, entity *monster, bool *combatFinished)
     }
 }
 
-void resolveHide(entity *player, entity *monster, bool *combatFinished)
+void resolveHide(Entity *player, Entity *monster, bool *combatFinished)
 {
     printf("Pardon the dust, this feature is not implemented yet (Hide).\n");
     *combatFinished = true;
 }
 
-void resolveFlee(entity *player, entity *monster, bool *combatFinished)
+void resolveFlee(Entity *player, Entity *monster, bool *combatFinished)
 {
     printf("Pardon the dust, this feature is not implemented yet (Flee).\n");
     *combatFinished = true;
 }
 
-void resolveItemUse(entity *player, entity *monster, bool *combatFinished)
+void resolveItemUse(Entity *player, Entity *monster, bool *combatFinished)
 {
     printf("Pardon the dust, this feature is not implemented yet (Items).\n");
     *combatFinished = true;
 }
 
-void monsterAction(entity *player, entity *monster)    // WIP, will see changes as further details are decided
+void monsterAction(Entity *player, Entity *monster)    // WIP, will see changes as further details are decided
 {
     // Discussion needed, what actions should the monster take? Always attack, always run away, 
     // weighted chart giving increased probabilities for certain outcomes dependent on monster type?
@@ -128,7 +128,7 @@ void monsterAction(entity *player, entity *monster)    // WIP, will see changes 
 }
 
 // Function used for unit testing (WIP)
-void performTest(entity *player, entity *monster, bool *combatFinished, int testFlag)
+void performTest(Entity *player, Entity *monster, bool *combatFinished, int testFlag)
 {
     switch(testFlag)
     {

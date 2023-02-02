@@ -1,8 +1,10 @@
-#include <assert.h>
-#include "tests/test_game.h"
-#include "combat.h"
+#include "game.h"
+#include <stdio.h>
 
-void run_shit() {
-    assert(10 == 10);
-    assert(11 == 10);
+void testRunGame() {
+    runGame();  // Validate that it runs.   
+}
+
+void main() {
+    testRunGame();
 }

@@ -1,30 +1,25 @@
-#ifndef menu_h
-#define menu_h
+#pragma once
 
 #include <stdio.h>
 #include <stdlib.h>
 
-
-// ---------
-// Functions
-// ---------
+// Main menu library.
+// Allows the program to display a main menu in which
+// you can for example start and exit the game.
 
 // This function handles the logic of the main menu.
-// To start it, do:
-// printMainMenu();
-// commandMainMenu();
-int commandMainMenu (void);
+//
+// returns: The selected command.
+int commandMainMenu();
 
 // This function prints the main menu to the console.
-void printMainMenu (void);
+void printMainMenu();
 
 // This function contains a message that will be printed when the console is closed.
-void exitPrint(void);
+void exitPrint();
 
 // This function prints a message that a feature is WIP.
-void printWIP(void);
+void printWIP();
 
 // This function enters a short loop that prints the basic instructions of the game
-void howToMenu(void);
-
-#endif
+void howToMenu();
