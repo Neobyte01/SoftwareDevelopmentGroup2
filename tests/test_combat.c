@@ -8,7 +8,6 @@ Entity m = {.type = MONSTER, .currentHP = 10, .maxHP = 10, .DEX = 2, .DMG = 2, .
 
 void testCombat(void)
 {
-    printf("--- Testing combat ---\n");
     printf("<<Player kills Monster using Attack (1)>>\n");
     bool playerSurvived = combat(&p, &m, 1);
     assert(playerSurvived == true);
@@ -28,10 +27,10 @@ void testCombat(void)
 
     printf("<Ensuring that 1 is still equal to 1>");
     assert(1 == 1);
-
-    printf("--- Completed Combat Tests ---\n");
 }
 
 void main() {
+    puts("Running tests...");
     testCombat();
+    puts("Done.");
 }
