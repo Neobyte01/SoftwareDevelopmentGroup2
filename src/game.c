@@ -48,22 +48,18 @@ void gameLoop() {
     int exit = 0;
 
     while (true) {
+        // if player and monster is in the same room
+        //     combat(player, monster)
+        
+        // else...
+        
+        // displaySurroundings(player);
+
         playerAction(player, &exit);
 
         if (exit == 1) return;
 
         for (int i = 0; i < noMonsters; i++)
             monsterAction(monsters[i]);
-
-        // if player and monster is in the same room
-        //     combat(player, monster)
-        
-        // else
-
-        //     displaySurroundings(player);
-        //     performAction(player);
-
-        //     for (monster in monsters) 
-        //         performAction(monster);
     }
 }
