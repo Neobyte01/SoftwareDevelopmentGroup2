@@ -52,7 +52,7 @@ test-combat:
 	$(CC) $(CFLAGS) tests/test_combat.c -o test_combat
 	./test_combat
 
-test-entities: test-entities-player
+test-entities: test-entities-player test-entities-monsters
 
 test-entities-player:
 	$(CC) $(CFLAGS) tests/entities/test_player.c -o test_entities_player
