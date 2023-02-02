@@ -40,9 +40,13 @@ run:
 
 
 # Run test suite
-test: test-entities
+test: test-combat test-entities
 
 # -- Custom test targets --
+
+test-combat:
+	$(CC) $(CFLAGS) tests/test_combat.c -o test_combat
+	./test_combat
 
 test-entities: test-entities-player test-entities-monsters
 
