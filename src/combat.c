@@ -36,8 +36,6 @@ bool combat(Entity *player, Entity *monster, int testFlag)
     return true;                                // Player survived combat
 }
 
-
-// Helper functions
 void printCombatMenu()
 {
     printf("--- Choose your Action ---\n  1. Attack\n  2. Hide\n  3. Flee\n  4. Use Item\n--------------------------\n");

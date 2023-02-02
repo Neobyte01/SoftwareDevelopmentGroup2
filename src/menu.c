@@ -16,6 +16,13 @@ int commandMainMenu() {
     {
         switch (answer)
         {
+        case 0:
+            system("cls");
+            printMainMenu();
+            printf("?: ");
+            fflush(stdin);
+            scanf("%d", &answer);
+            puts("");
         case 1:
             // Enter How-to Play menu
             howToMenu();
@@ -32,15 +39,6 @@ int commandMainMenu() {
         default:
             puts("\nPlease enter a valid input!\n");
             break;
-        }
-        if (i == 0)
-        {
-            system("cls");
-            printMainMenu();
-            printf("?: ");
-            fflush(stdin);
-            scanf("%d", &answer);
-            puts("");
         }
     }
 }
