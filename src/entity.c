@@ -32,9 +32,9 @@ void freeEntity(entity* ePtr)
 
 void printDesc(entity* item) {
     system("cls");
-    printf(item->description);
+    printf("%s", item->description);
     printf("Press any button to return");
-    scanf("");
+    // Fix a function to wait for input
 }
 
 void attachEntity(entity* primary, entity* secondary) {
@@ -89,8 +89,8 @@ void printItemMenu(entity** items, int num) {
 
     printf("What item would you like to examine?");
     for (int i = 1; i <= num; i++) {
-        printf(i + ": ");
-        printf(items[i]->name);
+        printf("%d: ", i);
+        printf("%s", items[i]->name);
         puts("");
     }
 }
