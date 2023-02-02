@@ -49,6 +49,17 @@ void attachEntity(entity* primary, entity* secondary) {
     primary->num++;
 }
 
+entity *copyEntity(entity *ePtr)
+{
+    entity *nPtr = createEntity(ePtr->name, ePtr->type, ePtr->behaviour);
+    strcpy(nPtr->description, ePtr->description);
+    nPtr->maxHP = ePtr->maxHP;
+    nPtr->currentHP = ePtr->currentHP;
+    nPtr->DMG = ePtr->DMG;
+    nPtr->DEF = ePtr->DEF;
+    nPtr->DEX = ePtr->DEX;
+}
+
 void commandItemMenu(entity** items) {
     
     int answer;

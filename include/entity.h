@@ -60,7 +60,7 @@ typedef struct entity{
 // This function initiates an entity for the current session
 // Variables to be added: pointer to current room, and current position in that room.
 // Arguments are: Name, Type, Behaviour
-entity* createEntity(char[10], enum entityType, enum entityBehaviour);
+entity* createEntity(char name[10], enum entityType type, enum entityBehaviour behaviour);
 
 // This function will free the entity pointer from memory
 void freeEntity(entity*);
@@ -74,6 +74,11 @@ void printDesc(entity*);
 // This will add stats from the secondary entity to the primary entity.
 // This can used to give stat bonuses, or to increase the currentHP of the primary entity.
 void attachEntity(entity*, entity*);
+
+
+// This function takes a pointer to an entity and creates a copy of it.
+// It returns a pointer to the new copy of the entity.
+entity* copyEntity(entity*);
 
 // This function contains the logic to use and enter the item menu
 void commandItemMenu(entity**);
