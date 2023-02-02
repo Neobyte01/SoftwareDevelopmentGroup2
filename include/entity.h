@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
+#include <action.h>
 #include "room.h"
 
 // This program should handle the functions regarding entities.
@@ -48,6 +49,7 @@ typedef struct entity{
     struct entity** attached; // Attached entities (Items)
     int num; // Number of attached entities
     struct roomStructure* room;
+    enum Action *last_action;
     // int **pos;
 } entity;
 

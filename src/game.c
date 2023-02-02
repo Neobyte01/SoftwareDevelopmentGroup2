@@ -3,6 +3,7 @@
 #include "game.h"
 #include "menu.h"
 #include "entity.h"
+#include "action.h"
 
 entity *player = NULL;
 entity *monsters = NULL;
@@ -22,7 +23,7 @@ void run_game() {
         switch (command) {
         case 1:
             setup_game();
-            puts("\nYou find yourself inside the sleeping quarters naked and alone.");            
+            puts("\nYou find yourself inside the sleeping quarters naked and alone.\n");            
             game_loop();
             puts("\nEnded game. Resetting...");
         case -1:
@@ -49,11 +50,20 @@ void setup_game() {
 // Main gameplay loop.
 void game_loop() {
     while (true) {
-        // display_surroundings(player);
-        // perform_action(player);
+        entity *monster = createEntity("Blurgh", Monster, none);
 
-        // for (monster in monsters) 
-        //     perform_action(monster);
+        monster_action(monster);
+
+        // if player and monster is in the same room
+        //     combat(player, monster)
+        
+        // else
+
+        //     display_surroundings(player);
+        //     perform_action(player);
+
+        //     for (monster in monsters) 
+        //         perform_action(monster);
 
         break; // Temporary break
     }
