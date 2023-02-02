@@ -3,6 +3,7 @@
         "player.h": "c",
         "monsters.h": "c",
         "menu.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "typeinfo": "c"
     }
 }
