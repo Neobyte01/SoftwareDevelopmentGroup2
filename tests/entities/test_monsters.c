@@ -21,7 +21,7 @@ void testMonsterRegistry() {
     assert(noMonsters == 0);
 }
 
-void main() {
+int main() {
     puts("Running tests...");
     testMonsterRegistry();
     puts("Done.");

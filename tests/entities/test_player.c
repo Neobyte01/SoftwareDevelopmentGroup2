@@ -18,7 +18,7 @@ void testSetupPlayer() {
     destroyEntity(player);  // ! important to reset test. 
 }
 
-void main() {
+int main() {
     puts("Running tests...");
     testSetupPlayer();
     puts("Done.");

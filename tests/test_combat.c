@@ -29,7 +29,7 @@ void testCombat(void)
     assert(1 == 1);
 }
 
-void main() {
+int main() {
     puts("Running tests...");
     testCombat();
     puts("Done.");
