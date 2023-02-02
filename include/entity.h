@@ -59,7 +59,7 @@ typedef struct entity{
 
 // This function initiates an entity for the current session
 // Variables to be added: pointer to current room, and current position in that room.
-// Arguments are: Name, Type, Behaviour, Max Hit Points (& Current), Damage, Defense, Dexterity
+// Arguments are: Name, Type, Behaviour
 entity* createEntity(char[10], enum entityType, enum entityBehaviour);
 
 // This function will free the entity pointer from memory
