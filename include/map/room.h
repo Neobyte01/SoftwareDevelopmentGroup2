@@ -1,5 +1,15 @@
-#ifndef room_h
-#define room_h
+#pragma once
+
+// Room library
+// Handles the rooms and information connected to the rooms.
+
+enum RoomType{
+	Corridor, 
+	DinnerHall,
+	SleepingQuarter,
+	CommonRoom,
+	TerminalRoom,
+}; 
 
 struct roomStructure {
     int roomNr;
@@ -8,10 +18,6 @@ struct roomStructure {
     char roomDescription[50];
 
 };
-
-
-
-#endif
 
 /*
 Map Text Format:
@@ -22,6 +28,4 @@ Map Text Format:
         []  []
             []
 
-
 */
-
