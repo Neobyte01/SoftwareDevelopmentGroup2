@@ -1,4 +1,4 @@
-vscode
+.vscode
 
 .DS_Store
 *.exe
@@ -17,3 +17,5 @@ main
 **.h~
 **.c.BAK
 **.h.BAk
+
+bin/**

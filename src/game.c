@@ -2,16 +2,18 @@
 #include <stddef.h>
 #include "game.h"
 #include "menu.h"
-#include "entity.h"
+#include "entities/player.h"
+#include "entities/monsters.h"
+#include "actions/action.h"
+#include "map/map.h"
 
-entity *player = NULL;
-entity *monsters = NULL;
+// Setup a game
+static void setupGame();
 
-static void setup_game();
-static void game_loop();
+// Main gameplay loop.
+static void gameLoop();
 
-// Initalize and run the game.
-void run_game() {
+void runGame() {
     // Game start and reset loop.
     while (true) {
         // printMainMenu();
@@ -21,10 +23,10 @@ void run_game() {
 
         switch (command) {
         case 1:
-            setup_game();
-            puts("\nYou find yourself inside the sleeping quarters naked and alone.");            
-            game_loop();
-            puts("\nEnded game. Resetting...");
+            setupGame();
+            puts("\nYou find yourself inside the sleeping quarters naked and alone.\n");            
+            gameLoop();
+            puts("\nEnding game...");
         case -1:
             exit(0);
         default:
@@ -33,28 +35,34 @@ void run_game() {
     }
 }
 
-// Setup a game
-void setup_game() {
-    // create_map();
+void setupGame() {
+    createMap(15);
 
-    if (player != NULL) freeEntity(player);
+    setupPlayer();
+    player->roomId = 1;
 
-    player = createEntity("Anita Shidd", Player, none);
-    player->DMG = 0;
-    player->DEF = 2;
+    Entity *blargh = createBlargh();
+    blargh->roomId = 12;
 
-    // Setup monsters and place them at "random"
+    addMonster(blargh);
 }
 
-// Main gameplay loop.
-void game_loop() {
+void gameLoop() {
+    int exit = 0;
+
     while (true) {
-        // display_surroundings(player);
-        // perform_action(player);
+        // if player and monster is in the same room
+        //     combat(player, monster)
+        
+        // else...
 
-        // for (monster in monsters) 
-        //     perform_action(monster);
+        printMap(player);
+        
+        playerAction(player, &exit);
 
-        break; // Temporary break
+        if (exit == 1) return;
+
+        for (int i = 0; i < noMonsters; i++)
+            monsterAction(monsters[i]);
     }
 }

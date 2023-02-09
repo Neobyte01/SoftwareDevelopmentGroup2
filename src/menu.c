@@ -2,9 +2,7 @@
 #include "menu.h"
 #include "combat.h"
 
-int commandMainMenu(void)
-{
-
+int commandMainMenu() {
     int answer;
     atexit(exitPrint);
 
@@ -18,6 +16,13 @@ int commandMainMenu(void)
     {
         switch (answer)
         {
+        case 0:
+            system("cls");
+            printMainMenu();
+            printf("?: ");
+            fflush(stdin);
+            scanf("%d", &answer);
+            puts("");
         case 1:
             // Enter How-to Play menu
             howToMenu();
@@ -35,38 +40,25 @@ int commandMainMenu(void)
             puts("\nPlease enter a valid input!\n");
             break;
         }
-        if (i == 0)
-        {
-            system("cls");
-            printMainMenu();
-            printf("?: ");
-            fflush(stdin);
-            scanf("%d", &answer);
-            puts("");
-        }
     }
 }
 
-void printMainMenu(void)
-{
+void printMainMenu() {
     printf("----------------------------------------------------\n Menu \n----------------------------------------------------\n");
     printf("1: Game Instructions.\n2: Start Game.\n3: Load Save.\n-1: Quit\n----------------------------------------------------\n\n");
 }
 
-void exitPrint(void)
-{
+void exitPrint() {
     printf("Exiting...\n");
 }
 
-void printWIP(void)
-{
+void printWIP() {
     printf("This feature has no yet been implemented.\n");
     puts("\n\nPress any button to return to main menu");
     fflush(stdin);
 }
 
-void howToMenu(void)
-{
+void howToMenu() {
     fflush(stdin);
     // Basic premise
     printf("\n-------------------------- Welcome to the game --------------------------\n");
