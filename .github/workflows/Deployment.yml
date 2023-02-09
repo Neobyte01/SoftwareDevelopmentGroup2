@@ -1,0 +1,32 @@
+name: Deployment
+run-name: Generating release artifact
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup bin/ folder
+      run: mkdir bin
+
+    - name: Run tests
+      run: make test
+      
+    - name: Compile project
+      run: make run-compile
+      
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: game-executable
+        path: 
+          bin
