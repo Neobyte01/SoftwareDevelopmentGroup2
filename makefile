@@ -38,6 +38,9 @@ run:
 	$(CC) $(CFLAGS) main.c -o bin/game
 	./bin/game
 
+# Compiles the project
+run-compile:
+	$(CC) $(CFLAGS) main.c -o bin/game
 
 # Run test suite
 test: test-combat test-entities
