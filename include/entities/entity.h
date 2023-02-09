@@ -6,7 +6,6 @@
 #include <stdbool.h>
 #include <string.h>
 #include "actions/types.h"
-#include "map/room.h"
 
 // This library handle the functions regarding entities.
 // Entities can be one of the following:
@@ -46,7 +45,7 @@ typedef struct Entity {
     int noAttached; // Number of attached entities
     
     // Tracking
-    struct roomStructure* room;
+    int roomId;
     enum ActionType last_action;
 } Entity;
 

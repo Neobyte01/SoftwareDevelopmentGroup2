@@ -5,6 +5,7 @@
 #include "entities/player.h"
 #include "entities/monsters.h"
 #include "actions/action.h"
+#include "map/map.h"
 
 // Setup a game
 static void setupGame();
@@ -35,12 +36,14 @@ void runGame() {
 }
 
 void setupGame() {
-    // createMap();
+    createMap(15);
 
     setupPlayer();
+    player->roomId = 1;
 
     Entity *blargh = createBlargh();
-    // Place monster at random on map
+    blargh->roomId = 12;
+
     addMonster(blargh);
 }
 
@@ -52,9 +55,9 @@ void gameLoop() {
         //     combat(player, monster)
         
         // else...
-        
-        // displaySurroundings(player);
 
+        printMap(player);
+        
         playerAction(player, &exit);
 
         if (exit == 1) return;

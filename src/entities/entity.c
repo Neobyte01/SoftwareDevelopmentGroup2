@@ -22,7 +22,7 @@ Entity* createEntity(enum EntityType type, enum EntityBehaviour behaviour) {
 
     // Tracking
     entity->last_action = CREATED;
-    entity->room = NULL;
+    entity->roomId = 0;
 
     nextId++;
 
@@ -81,8 +81,7 @@ void printEntity(Entity* entity) {
     printf("Entity (%d)\n", entity->id);
     printf("------------------\n");
     
-    if (entity->room != NULL) 
-        printf("room: %d\n", entity->room->roomNr);
+    printf("room: %d\n", entity->roomId);
     
     printf("hp: %d\n", entity->currentHP);
 }

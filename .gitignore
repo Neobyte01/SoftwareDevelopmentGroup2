@@ -17,3 +17,5 @@ main
 **.h~
 **.c.BAK
 **.h.BAk
+
+bin/**

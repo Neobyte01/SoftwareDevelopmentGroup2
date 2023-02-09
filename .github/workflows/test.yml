@@ -15,5 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Setup bin/ folder
+      run: mkdir bin
+
     - name: Run tests
       run: make test

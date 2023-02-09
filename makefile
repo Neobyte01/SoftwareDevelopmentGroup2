@@ -35,8 +35,8 @@ lint:
 
 # Run the game
 run:
-	$(CC) $(CFLAGS) main.c -o game
-	./game
+	$(CC) $(CFLAGS) main.c -o bin/game
+	./bin/game
 
 
 # Run test suite
@@ -45,15 +45,21 @@ test: test-combat test-entities
 # -- Custom test targets --
 
 test-combat:
-	$(CC) $(CFLAGS) tests/test_combat.c -o test_combat
-	./test_combat
+	$(CC) $(CFLAGS) tests/test_combat.c -o bin/test_combat
+	./bin/test_combat
 
 test-entities: test-entities-player test-entities-monsters
 
 test-entities-player:
-	$(CC) $(CFLAGS) tests/entities/test_player.c -o test_entities_player
-	./test_entities_player
+	$(CC) $(CFLAGS) tests/entities/test_player.c -o bin/test_entities_player
+	./bin/test_entities_player
 
 test-entities-monsters:
-	$(CC) $(CFLAGS) tests/entities/test_monsters.c -o test_entities_monsters
-	./test_entities_monsters
+	$(CC) $(CFLAGS) tests/entities/test_monsters.c -o bin/test_entities_monsters
+	./bin/test_entities_monsters
+
+test-map: test-map-map
+
+test-map-map:
+	$(CC) $(CFLAGS) tests/map/test_map.c -o bin/test_map_map
+	./bin/test_map_map
