@@ -8,6 +8,14 @@
 #include "entities/player.h"
 #include "map/movement.h"
 
+// Delay the program.
+//
+// args:
+// - ms: Number of milliseconds to delay.
+// - rms: Random variability in milliseconds. So resulting 
+//        delay is ms +- rms.
+static void delay(int ms, int rms);
+
 // Prompt user for input.
 //
 // returns: Integer assigned to selected command.
@@ -23,8 +31,6 @@ static void scanInput(char *input);
 static void helpCommand();
 
 void playerAction(Entity *player, int *exitFlag) {
-    // - move(entity, directions)
-
     // - search <object>
     // - take <object>
     // - read <object>
@@ -34,19 +40,51 @@ void playerAction(Entity *player, int *exitFlag) {
 
     // - view person
 
-    // - help 
+    int command;
+    char *input = malloc(SCAN_INPUT_SIZE);
 
-    int command = getCommand();
+    while (true) {
+        printf("?: ");
+        scanInput(input);
 
-    switch (command) {
-        case 1: // exit
-            printf("Exiting to main menu...\n");
+        if (strcmp(input, "help") == 0) {
+            helpCommand();
+            // Special command that doesn't affect game loop.
+        } else if (strcmp(input, "exit") == 0) {
+            printf("Exiting to main menu...\n\n");
             *exitFlag = 1;
             break;
-        default: 
-            printf("Error: Command not recongized\n");
+        } else if(strcmp(input, "move left") == 0){
+            moveEntity(player,LEFT);
+            printf("Moving leftward...\n\n");
+            delay(300, 50);
             break;
+        } else if(strcmp(input, "move right") == 0){
+            moveEntity(player,RIGHT);
+            printf("Moving rightward...\n\n");
+            delay(300, 50);
+            break;
+        } else if(strcmp(input, "move up") == 0){
+            moveEntity(player,UP);
+            printf("Moving upward...\n\n");
+            delay(300, 50);
+            break;
+        } else if(strcmp(input, "move down") == 0){
+            moveEntity(player,DOWN);
+            printf("Moving downward...\n\n");
+            delay(300, 50);
+            break;
+        } else if(strcmp(input, "map") == 0){
+            printf("Opening the map...\n\n");
+            delay(200, 20);
+            printMap(player);
+            // Doesn't affect game loop
+        } else {
+            printf("'%s' is not a recognized command. Type 'help' you're unsure.\n\n", input);    
+        } 
     }
+
+    free(input);
 }
 
 void monsterAction(Entity *monster) {
@@ -77,45 +115,15 @@ void monsterAction(Entity *monster) {
     }
 }
 
-int getCommand() {
-    int command;
-    char *input = malloc(SCAN_INPUT_SIZE);
+void delay(int ms, int rms) {
+    clock_t start_time = clock();
 
-    while (true) {
-        printf("Enter a direction (left, right, up, down)\n ");
-        printf("?: ");
-        scanInput(input);
+    srand(time(NULL));
+    int delay_time = ms * 1000 + rand() % (rms * 2) - rms;
 
-        if (strcmp(input, "help") == 0) {
-            helpCommand();
-            // Special command that doesn't affect game loop.
-        } else if (strcmp(input, "exit") == 0) {
-            command = 1;
-            break;
-        } else if(strcmp(input, "left") == 0){
-           moveEntity(player,LEFT);
-            printMap(player);
-
-        }else if(strcmp(input, "right") == 0){
-            moveEntity(player,RIGHT);
-            printMap(player);
-
-        }else if(strcmp(input, "up") == 0){
-            moveEntity(player,UP);
-            printMap(player);
-
-        }else if(strcmp(input, "down") == 0){
-            moveEntity(player,DOWN);
-            printMap(player);
-
-        }
-        else {
-            printf("'%s' is not a recognized command. Type 'help' you're unsure.\n\n", input);    
-        } 
+    while (clock() < start_time + ms * 1000) {
+        // waiting
     }
-
-    free(input);
-    return command;
 }
 
 void scanInput(char *input) {
@@ -140,8 +148,13 @@ void scanInput(char *input) {
 
 void helpCommand() {
     printf("\nAvailable commands:\n");
-    printf("----------------------------------------------------\n");
-    printf("help: Helpful instructions on how to write commands.\n");
+    printf("-----------------------------------\n");
+    printf("map: Show your location on the map.\n\n");
+    printf("move up: Move upward.\n");
+    printf("move down: Move downward.\n");
+    printf("move left: Move leftward.\n");
+    printf("move right: Move rightward.\n\n");
+    printf("help: Helpful commands.\n");
     printf("exit: Exit back to the main menu.\n");
     printf("\n");
 }

@@ -24,7 +24,11 @@ void runGame() {
         switch (command) {
         case 1:
             setupGame();
+        
             puts("\nYou find yourself inside the sleeping quarters naked and alone.\n");            
+            printf("(type 'help' for helpful commands)\n\n");
+            printMap(player);
+
             gameLoop();
             puts("\nEnding game...");
         case -1:
@@ -55,8 +59,6 @@ void gameLoop() {
         //     combat(player, monster)
         
         // else...
-
-        printMap(player);
         
         playerAction(player, &exit);
 
