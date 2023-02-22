@@ -57,26 +57,26 @@ void playerAction(Entity *player, int *exitFlag) {
         } else if(strcmp(input, "move left") == 0){
             moveEntity(player,LEFT);
             printf("Moving leftward...\n\n");
-            delay(300, 50);
+            //delay(300, 50);
             break;
         } else if(strcmp(input, "move right") == 0){
             moveEntity(player,RIGHT);
             printf("Moving rightward...\n\n");
-            delay(300, 50);
+           // delay(300, 50);
             break;
         } else if(strcmp(input, "move up") == 0){
             moveEntity(player,UP);
             printf("Moving upward...\n\n");
-            delay(300, 50);
+            //delay(300, 50);
             break;
         } else if(strcmp(input, "move down") == 0){
             moveEntity(player,DOWN);
             printf("Moving downward...\n\n");
-            delay(300, 50);
+            //delay(300, 50);
             break;
         } else if(strcmp(input, "map") == 0){
             printf("Opening the map...\n\n");
-            delay(200, 20);
+            //delay(200, 20);
             printMap(player);
             // Doesn't affect game loop
         } else {

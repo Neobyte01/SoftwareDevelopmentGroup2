@@ -15,7 +15,8 @@ enum RoomType {
 	SLEEPING_QUARTER,
 	COMMON_ROOM,
 	TERMINAL_ROOM,
-	KITCHEN
+	KITCHEN,
+	HALL
 }; 
 
 const char* RoomNames[10];
@@ -33,7 +34,7 @@ typedef struct Room {
   	struct Room *up;
   	struct Room *down;
 
-
+	char * desc; 
     struct Object* Objects; 
 } Room;
 
