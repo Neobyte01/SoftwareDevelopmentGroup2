@@ -36,10 +36,10 @@ void runGame() {
 }
 
 void setupGame() {
-    createMap(15);
+    globalMap = createMap(15);
 
     setupPlayer();
-    player->roomId = 1;
+    player->roomId = 2;
 
     Entity *blargh = createBlargh();
     blargh->roomId = 12;

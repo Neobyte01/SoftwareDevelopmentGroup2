@@ -1,6 +1,7 @@
 #pragma once
 #include <stdlib.h>
 #include "entities/entity.h"
+#include "map/movement.h"
 
 // Map library
 // Contains the map and functions for setting it up.
@@ -19,17 +20,20 @@ enum RoomType {
 
 const char* RoomNames[10];
 
-// A structure to represent connection between rooms.
-typedef struct Edge {
-	int dest;
-	struct Edge* next;
-} Edge;
+
 
 // A structure to represent a room .
 typedef struct Room {
 	int id; 
 	enum RoomType type;
-	struct Edge* head;
+	//struct Edge* head;
+
+	struct Room *left;
+  	struct Room *right;
+  	struct Room *up;
+  	struct Room *down;
+
+
     struct Object* Objects; 
 } Room;
 
@@ -48,14 +52,6 @@ typedef struct Map {
 
 Map *globalMap; 
 
-// A utility function to create a new adjacency list node i.e. Room.
-// 
-// args:
-// - dest: Destination to connect.
-//
-// returns: newly created edge.
-Edge* newEdge(int dest);
-
 // A utility function that creates a graph of V Rooms.
 // 
 // args:
@@ -64,27 +60,24 @@ Edge* newEdge(int dest);
 // returns: newly created graph.
 Map* createMap(int V);
 
-// Adds a Room to an undirected graph.
-// 
-// args:
-// - graph: Graph to add to.
-// - src: Source node.
-// - dest: Destination node.
-void addEdge(Map* map, int src, int dest);
 
-// A utility function to print the adjacency list.
-// representation of graph.
-void printGraph();
 
 // this function prints the Map, it can be modified later e.g. we can print the ID of each room in the boxes
 void printMap(Entity *entity);
 
-// Utility function to find connected rooms from the room given 
-// 
-// args:
-// - id: Id of room.
-void connectedRooms(int id);
+
 
 // this function sets the default values and configuration for the Map, 
 // for now the defualt values are based on the Discord Map
-void defultMap(struct Map* Map);
+void defaultMap(struct Map* Map);
+
+
+// Connecting two rooms
+// input: 
+//		a: room a
+// 		b: room b
+// 		dir: in which direction room b should be connected to room b
+void connect_rooms(Room *a,Room *b,enum Direction dir);
+
+
+

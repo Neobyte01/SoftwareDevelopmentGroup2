@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include "map/map.h"
+#include "entities/player.h"
+#include "map/movement.h"
 
 // Prompt user for input.
 //
@@ -79,6 +82,7 @@ int getCommand() {
     char *input = malloc(SCAN_INPUT_SIZE);
 
     while (true) {
+        printf("Enter a direction (left, right, up, down)\n ");
         printf("?: ");
         scanInput(input);
 
@@ -88,9 +92,26 @@ int getCommand() {
         } else if (strcmp(input, "exit") == 0) {
             command = 1;
             break;
-        } else {
-            printf("'%s' is not a recognized command. Type 'help' you're unsure.\n\n", input);    
+        } else if(strcmp(input, "left") == 0){
+           moveEntity(player,LEFT);
+            printMap(player);
+
+        }else if(strcmp(input, "right") == 0){
+            moveEntity(player,RIGHT);
+            printMap(player);
+
+        }else if(strcmp(input, "up") == 0){
+            moveEntity(player,UP);
+            printMap(player);
+
+        }else if(strcmp(input, "down") == 0){
+            moveEntity(player,DOWN);
+            printMap(player);
+
         }
+        else {
+            printf("'%s' is not a recognized command. Type 'help' you're unsure.\n\n", input);    
+        } 
     }
 
     free(input);
