@@ -27,6 +27,7 @@ struct Map* createMap(int V) {
 		Map->array[i].right = NULL;
 		Map->array[i].up = NULL;
 		Map->array[i].down = NULL;
+		Map->array[i].description = "N/A";
 	}
 
 	defaultMap(Map);
@@ -70,9 +71,11 @@ void printMap(Entity *entity) {
 	printf("            \n");
 }
 
+void describeRoom(struct Map *map, int room_id) {
+	printf("%s\n\n",  map->array[room_id].description);
+}
+
 void defaultMap(struct Map* Map) {
-
-
 	connect_rooms(&Map->array[1],&Map->array[3],RIGHT);
 	connect_rooms(&Map->array[3],&Map->array[2],UP);
 	connect_rooms(&Map->array[3],&Map->array[4],DOWN);
@@ -88,7 +91,7 @@ void defaultMap(struct Map* Map) {
 	connect_rooms(&Map->array[13],&Map->array[14],DOWN);
 	connect_rooms(&Map->array[11],&Map->array[15],RIGHT);
 
-	
+
 
 	Map->array[1].type = SLEEPING_QUARTER;
 	Map->array[2].type = SLEEPING_QUARTER;

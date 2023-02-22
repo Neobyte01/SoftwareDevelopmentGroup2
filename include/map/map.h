@@ -33,6 +33,7 @@ typedef struct Room {
   	struct Room *up;
   	struct Room *down;
 
+	char *description;
 
     struct Object* Objects; 
 } Room;
@@ -60,12 +61,14 @@ Map *globalMap;
 // returns: newly created graph.
 Map* createMap(int V);
 
-
-
 // this function prints the Map, it can be modified later e.g. we can print the ID of each room in the boxes
 void printMap(Entity *entity);
 
-
+// Describe the room to the player.
+//
+// args:
+// - room_id: Id of the room to describe.
+void describeRoom(struct Map *map, int room_id);
 
 // this function sets the default values and configuration for the Map, 
 // for now the defualt values are based on the Discord Map
