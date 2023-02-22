@@ -15,6 +15,7 @@ Entity* createEntity(enum EntityType type, enum EntityBehaviour behaviour) {
     entity->DMG = 5;
     entity->DEF = 5;
     entity->DEX = 5;
+    entity->SEN = 5;
 
     // Items
     entity->attached = NULL;

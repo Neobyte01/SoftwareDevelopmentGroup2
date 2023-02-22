@@ -2,89 +2,66 @@
 #include "entities/player.h"
 #include "map/map.h"
 
-void moveEntity(Entity *entity, enum Direction dir) {
-    
+int moveEntity(Entity *entity, enum Direction dir) {
     int id = entity->roomId;
+	int moved;
 
     switch(dir){
-
         case UP:
-        moveUp(id);
-        break;
-
+			moved = moveUp(id);
+			break;
         case DOWN:
-        moveDown(id);
-        break;
-
+			moved = moveDown(id);
+			break;
         case RIGHT:
-        moveRight(id);
-        break;
-
+			moved = moveRight(id);
+			break;
         case LEFT:
-        moveLeft(id);
-        break;
-
-
+			moved = moveLeft(id);
+			break;
         default:
-        break;
-
+			break;
     }
+
+	return moved;
 }
 
-
-
-
-
-
-void moveLeft(int id){
-
-
+int moveLeft(int id) {
 	if(globalMap->array[id].left != NULL){
 		player->roomId =  globalMap->array[id].left->id;
-	}
-	else{
+		return 1;
+	} else{
 		printf("Can't move to the left\n");
+		return 0;
 	}
-
-
 }
 
-
-void moveRight(int id){
-	
+int moveRight(int id) {
 	if(globalMap->array[id].right != NULL){
 		player->roomId =  globalMap->array[id].right->id;
-	}
-	else{
+		return 1;
+	} else {
 		printf("Can't move to the right\n");
+		return 0;
 	}
-
 }
 
-
-void moveUp(int id){
-	
+int moveUp(int id) {
 	if(globalMap->array[id].up != NULL){
 		player->roomId =  globalMap->array[id].up->id;
-	}
-	else{
+		return 1;
+	} else {
 		printf("Can't move to the up-side\n");
+		return 0;
 	}
-
-
 }
 
-
-
-
-void moveDown(int id){
-
+int moveDown(int id){
 	if(globalMap->array[id].down != NULL){
 		player->roomId =  globalMap->array[id].down->id;
-	}
-	else{
+		return 1;
+	} else {
 		printf("Can't move to the down-side\n");
+		return 0;
 	}
-
-
 }

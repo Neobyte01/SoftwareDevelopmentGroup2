@@ -5,6 +5,7 @@
 #include "entities/player.h"
 #include "entities/monsters.h"
 #include "actions/action.h"
+#include "combat.h"
 #include "map/map.h"
 
 // Setup a game
@@ -53,18 +54,30 @@ void setupGame() {
 
 void gameLoop() {
     int exit = 0;
+    int in_combat = 0;
+    int bs;
+    Entity *found_monster;
 
     while (true) {
-        // if player and monster is in the same room
-        //     combat(player, monster)
-        
-        // else...
-        
-        playerAction(player, &exit);
+        // Check for monsters in the same room as player.
+        for (int i = 0; i < noMonsters; i++) {
+            if (player->roomId == monsters[i]->roomId) {
+                in_combat = 1;
+                found_monster = monsters[i];
+                break;
+            }
+        }
 
-        if (exit == 1) return;
+        // Enter combat or exploration
+        if (in_combat == 1) {
+            combat(player, found_monster, bs);
+        } else {
+            playerAction(player, &exit);
 
-        for (int i = 0; i < noMonsters; i++)
-            monsterAction(monsters[i]);
+            if (exit == 1) return;
+
+            for (int i = 0; i < noMonsters; i++)
+                monsterAction(monsters[i]);
+        }
     }
 }

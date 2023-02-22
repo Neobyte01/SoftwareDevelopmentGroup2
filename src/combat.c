@@ -8,6 +8,7 @@ static void resolvePlayerAttack(Entity *player, Entity *monster, bool *combatFin
 static void resolveHide(Entity *player, Entity *monster, bool *combatFinished);
 static void resolveFlee(Entity *player, Entity *monster, bool *combatFinished);
 static void resolveItemUse(Entity *player, Entity *monster, bool *combatFinished);
+static void resolveMonsterAttack(Entity *player, Entity *monster);
 static void performTest(Entity *player, Entity *monster, bool *combatFinished, int testFlag);
 
 bool combat(Entity *player, Entity *monster, int testFlag) {
@@ -60,16 +61,6 @@ void playerAction(Entity *player, Entity *monster, bool *combatFinished) {
             resolveHide(player, monster, combatFinished);
             i = 1;
             break;
-        case 3:
-            //Flee logic goes here, requires grid movement system
-            resolveFlee(player, monster, combatFinished);
-            i = 1;
-            break;
-        case 4:
-            //Item logic goes here, requires further discussions about item types/abilities
-            resolveItemUse(player, monster, combatFinished);
-            i = 1;
-            break;
         default:
             printf("Please select a valid Action!\n");
             break;
@@ -97,24 +88,75 @@ void resolvePlayerAttack(Entity *player, Entity *monster, bool *combatFinished) 
 
 void resolveHide(Entity *player, Entity *monster, bool *combatFinished) {
     printf("Pardon the dust, this feature is not implemented yet (Hide).\n");
-    *combatFinished = true;
-}
 
-void resolveFlee(Entity *player, Entity *monster, bool *combatFinished) {
-    printf("Pardon the dust, this feature is not implemented yet (Flee).\n");
-    *combatFinished = true;
-}
+    // Get the chance that the player is found
+    int s = 100 * (player->DEX / monster->SEN);
 
-void resolveItemUse(Entity *player, Entity *monster, bool *combatFinished) {
-    printf("Pardon the dust, this feature is not implemented yet (Items).\n");
-    *combatFinished = true;
+    // Should the chance be modified depending on if the monster has been attacked?
+
+    // Get the random chance
+    srand(time(NULL));
+    int r = (rand() % 100) + 1;
+
+    if (r < s) // Player hides successfully
+    {
+        printf("You successfully hid from the monster!");
+        *combatFinished = true;
+        // Combat should end and the monster should return to normal behaviour and not engage in combat again.
+    }
+    else // Player fails to hide
+    {
+        printf("You failed to hide from the monster!");
+    }
 }
 
 void monsterAction(Entity *player, Entity *monster)   {
     // Discussion needed, what actions should the monster take? Always attack, always run away, 
     // weighted chart giving increased probabilities for certain outcomes dependent on monster type?
+
+    // Base 25% chance that the monster flees, otherwise, it attacks
+    int f = 25;
+
+    // If the monster is aggresive, reduce the chance that if flees to 10%
+    if (monster->behaviour == AGGRESSIVE) 
+    {
+        f -= 15;
+    }
+    else if (monster->behaviour == SCARED) // If the monster is scared, increase the chance that it flees to 75%
+    {
+        f += 50;
+    }
     
-   printf("Pardon the dust, this feature is not implemented yet (Monster Action).\n");
+    // Random variable for it's action
+    srand(time(NULL));
+    int r = (rand() % 100) + 1;
+
+    // The monster flees if the random variable is lower than its "Flee chance"
+    if (r < f) 
+    {
+        // Moves to room 0
+        monster->roomId = 0;
+    }
+    else // Monster attacks
+    {
+        resolveMonsterAttack(player, monster);
+    }
+}
+
+void resolveMonsterAttack(Entity *player, Entity *monster) {
+    if(monster->DMG - player->DEF > 0)  // If the attack goes through the player defense...
+    {
+        player->currentHP -= (monster->DMG - player->DEF);
+        printf("You were wounded by the monster!\n");
+        if(player->currentHP <= 0)
+        {
+            printf("You have perished!\n");
+            // Should the game end at this point and restart? or should it just exit?
+        }
+    }else   // Attack is too weak...
+    {
+        printf("The monster's attack had no effect!\n");     // Should an attack always deal some minor damage (1 or more?)?
+    }
 }
 
 // Function used for unit testing (WIP)
@@ -129,12 +171,6 @@ void performTest(Entity *player, Entity *monster, bool *combatFinished, int test
             break;
         case 2: // Testing Hide-option (Player hides from Monster)
             resolveHide(player, monster, combatFinished);
-            break;
-        case 3: // Testing Flee-option (Player flees from Monster)
-            resolveFlee(player, monster, combatFinished);
-            break;
-        case 4: // Testing "Use Items"-option
-            resolveItemUse(player, monster, combatFinished);
             break;
         default:
             printf("Invalid testFlag was set, please try again!\n");

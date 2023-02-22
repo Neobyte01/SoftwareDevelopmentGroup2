@@ -39,7 +39,8 @@ typedef struct Entity {
     int DMG;
     int DEF;
     int DEX;
-    
+    int SEN;
+
     // Items
     struct Entity** attached; // Attached entities
     int noAttached; // Number of attached entities
