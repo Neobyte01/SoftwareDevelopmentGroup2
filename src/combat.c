@@ -96,7 +96,7 @@ void resolveHide(Entity *player, Entity *monster, bool *combatFinished) {
 
     // Get the random chance
     srand(time(NULL));
-    int r = (new rand() % 100) + 1;
+    int r = (rand() % 100) + 1;
 
     if (r < s) // Player hides successfully
     {
@@ -118,18 +118,18 @@ void monsterAction(Entity *player, Entity *monster)   {
     int f = 25;
 
     // If the monster is aggresive, reduce the chance that if flees to 10%
-    if (monster->behaviour = AGGRESSIVE) 
+    if (monster->behaviour == AGGRESSIVE) 
     {
         f -= 15;
     }
-    else if (monster->behaviour = SCARED) // If the monster is scared, increase the chance that it flees to 75%
+    else if (monster->behaviour == SCARED) // If the monster is scared, increase the chance that it flees to 75%
     {
         f += 50;
     }
     
     // Random variable for it's action
     srand(time(NULL));
-    int r = (new rand() % 100) + 1;
+    int r = (rand() % 100) + 1;
 
     // The monster flees if the random variable is lower than its "Flee chance"
     if (r < f) 
