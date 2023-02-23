@@ -54,7 +54,12 @@ from a terminal. If "make setup" tells you that a directory called "bin" already
 
 The make instructions (targets) for handling this project. Works for both Macos and Windows.
 
-*Compile and run program*
+*Build program*
+```
+$ make
+```
+
+*Run program*
 ```
 $ make run
 ```
