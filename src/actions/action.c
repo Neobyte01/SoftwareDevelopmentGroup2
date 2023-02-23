@@ -191,7 +191,7 @@ void scanInput(char *input) {
 }
 
 void helpCommand() {
-    printf("\nAvailable commands:\n");
+    printf("\nSome helpful commands:\n");
     printf("-----------------------------------\n");
     printf("map: Show your location on the map.\n\n");
     printf("move north: Move northward/upward.\n");
