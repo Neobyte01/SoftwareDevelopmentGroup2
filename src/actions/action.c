@@ -48,6 +48,7 @@ char *move_east_commands[] = {"move east", "move e"};
 char *move_north_commands[] = {"move north", "move n"};
 char *move_south_commands[] = {"move south", "move s"};
 char *map_commands[] = {"map", "show map", "view map", "open map"};
+char *search_room_commands[] = {"search", "search room", "look around"};
 
 void playerAction(Entity *player, int *exitFlag) {
     // - search <object>
@@ -116,6 +117,8 @@ void playerAction(Entity *player, int *exitFlag) {
             // delay(200, 20);
             printMap(player);
             // Doesn't affect game loop
+        } else if(commandCompare(input, search_room_commands, 3)){
+            searchRoom(player, globalMap);
         } else {
             printf("'%s' is not a recognized command. Type 'help' you're unsure.\n\n", input);    
         }
@@ -198,6 +201,7 @@ void helpCommand() {
     printf("move south: Move southward/downward.\n");
     printf("move west: Move westward/leftward.\n");
     printf("move east: Move eastward/rightward.\n\n");
+    printf("search: Describes the room you're in.\n\n");
     printf("help: Helpful commands.\n");
     printf("exit: Exit back to the main menu.\n");
     printf("\n");

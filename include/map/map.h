@@ -37,6 +37,7 @@ typedef struct Room {
   	struct Room *up;
   	struct Room *down;
 
+	char *name;
 	char *description;
 
     struct Object* Objects; 

@@ -28,6 +28,7 @@ struct Map* createMap(int V) {
 		Map->array[i].right = NULL;
 		Map->array[i].up = NULL;
 		Map->array[i].down = NULL;
+		Map->array[i].name = "N/A";
 		Map->array[i].description = "N/A";
 	}
 
@@ -46,7 +47,7 @@ void printMap(Entity *entity) {
 }
 
 void describeRoom(struct Map *map, int room_id) {
-	printf("%s\n\n",  map->array[room_id].description);
+	printf("%s\n\n",  map->array[room_id].name);
 }
 
 void connect_rooms(Room *a,Room *b, enum Direction dir) {
