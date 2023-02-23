@@ -13,7 +13,6 @@ bool combat(Entity *player, Entity *monster, int testFlag) {
     bool combatFinished = false;
     if(testFlag == 0)   // Normal operation, no tests performed
     {
-        system("cls");
         printf("\nCombat has commenced!\n\n");
         while(!combatFinished)      //Combat loop, should initiative be decided by DEX-stat? Should it always be player first?
         {
@@ -43,7 +42,7 @@ void playerAction(Entity *player, Entity *monster, bool *combatFinished) {
     int i = 0;
     while(i == 0)
     {
-        printf("?: ");
+        printf("!: ");
 
         scanf("%d", &answer);
         puts("");
