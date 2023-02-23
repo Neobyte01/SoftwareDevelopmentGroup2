@@ -52,7 +52,6 @@ void playerAction(Entity *player, Entity *monster, bool *combatFinished) {
             i = 1;
             break;
         case 2:
-            //Hiding logic goes here, requires further discussion about room types
             resolveHide(player, monster, combatFinished);
             i = 1;
             break;
@@ -83,18 +82,19 @@ void resolvePlayerAttack(Entity *player, Entity *monster, bool *combatFinished) 
 
 void resolveHide(Entity *player, Entity *monster, bool *combatFinished) {    
 
-    int s = 100 * (player->DEX / monster->SEN);
+    float s = monster->SEN;
+    float d = player->DEX;
+    float c = round(100 * (s / d)); // Probability that the player hides successfully
+
     // Should the chance be modified depending on if the monster has been attacked?
 
     // Get the random chance
-    srand(time(NULL));
     int r = (rand() % 100) + 1;
 
-    if (r < s) // Player hides successfully
+    if (r > (int)c) // Player hides successfully
     {
         printf("You successfully hid from the monster!\n");
         *combatFinished = true;
-        // Combat should end and the monster should return to normal behaviour and not engage in combat again.
     }
     else // Player fails to hide
     {
@@ -118,16 +118,21 @@ void monsterAction(Entity *player, Entity *monster, bool *combatFinished)   {
     {
         f += 50;
     }
+    else if (monster->behaviour == NONE) // Testing monster does not flee
+    {
+        f = 0;
+    }
     
     // Random variable for it's action
-    srand(time(NULL));
     int r = (rand() % 100) + 1;
 
     // The monster flees if the random variable is lower than its "Flee chance"
     if (r < f) 
     {
-        // Moves to room 0
+        // Moves to room 0 (Should move to a nearby room)
+        printf("The monster flees!\n");
         monster->roomId = 0;
+        *combatFinished = true;
     }
     else // Monster attacks
     {

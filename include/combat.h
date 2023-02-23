@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include <math.h>
 #include "entities/entity.h"
 
 // Everything that has to do with combat between player and monster is handled here

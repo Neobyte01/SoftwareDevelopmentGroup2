@@ -8,6 +8,7 @@ Entity *createBlargh() {
     blargh->maxHP = 20;
     blargh->currentHP = 20;
     blargh->DMG = 3;
+    blargh->SEN = 3;
 
     return blargh;
 }
