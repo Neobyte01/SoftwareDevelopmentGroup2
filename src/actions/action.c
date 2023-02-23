@@ -58,38 +58,46 @@ void playerAction(Entity *player, int *exitFlag) {
             break;
         } else if(strcmp(input, "move left") == 0){
             moved = moveEntity(player,LEFT);
-            printf("Moving leftward...\n\n");
-            // delay(300, 50);
             if (moved == 1) {
+                printf("Moving leftward...\n\n");
+                // delay(300, 50);
                 printf("You walk to the left. There you find ");
                 describeRoom(globalMap, player->roomId);
+            } else {
+                printf("Can't move to the left\n\n");
             }
             break;
         } else if(strcmp(input, "move right") == 0){
             moved = moveEntity(player,RIGHT);
-            printf("Moving rightward...\n\n");
-            // delay(300, 50);
             if (moved == 1) {
+                printf("Moving rightward...\n\n");
+                // delay(300, 50);
                 printf("You walk to the right. There you find ");
                 describeRoom(globalMap, player->roomId);
+            } else {
+                printf("Can't move to the right\n\n");
             }
             break;
         } else if(strcmp(input, "move up") == 0){
             moved = moveEntity(player,UP);
-            printf("Moving upward...\n\n");
-            // delay(300, 50);
             if (moved == 1) {
+                printf("Moving upward...\n\n");
+                // delay(300, 50);
                 printf("You walk to upward. There you find ");
                 describeRoom(globalMap, player->roomId);
+            } else {
+                printf("Can't move upward\n\n");
             }
             break;
         } else if(strcmp(input, "move down") == 0){
             moved = moveEntity(player,DOWN);
-            printf("Moving downward...\n\n");
-            // delay(300, 50);
             if (moved == 1) {
+                printf("Moving downward...\n\n");
+                // delay(300, 50);
                 printf("You walk to downward. There you find ");
                 describeRoom(globalMap, player->roomId);
+            } else {
+                printf("Can't move downward\n\n");
             }
             break;
         } else if(strcmp(input, "map") == 0){

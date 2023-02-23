@@ -31,7 +31,6 @@ int moveLeft(int id) {
 		player->roomId =  globalMap->array[id].left->id;
 		return 1;
 	} else{
-		printf("Can't move to the left\n");
 		return 0;
 	}
 }
@@ -41,7 +40,6 @@ int moveRight(int id) {
 		player->roomId =  globalMap->array[id].right->id;
 		return 1;
 	} else {
-		printf("Can't move to the right\n");
 		return 0;
 	}
 }
@@ -51,7 +49,6 @@ int moveUp(int id) {
 		player->roomId =  globalMap->array[id].up->id;
 		return 1;
 	} else {
-		printf("Can't move to the up-side\n");
 		return 0;
 	}
 }
@@ -61,7 +58,6 @@ int moveDown(int id){
 		player->roomId =  globalMap->array[id].down->id;
 		return 1;
 	} else {
-		printf("Can't move to the down-side\n");
 		return 0;
 	}
 }
