@@ -3,28 +3,25 @@
 // Helper function declarations
 static void printCombatMenu();
 static void playerAction(Entity *player, Entity *monster, bool *combatFinished);
-static void monsterAction(Entity *player, Entity *monster);
+static void monsterAction(Entity *player, Entity *monster, bool *combatFinished);
 static void resolvePlayerAttack(Entity *player, Entity *monster, bool *combatFinished);
 static void resolveHide(Entity *player, Entity *monster, bool *combatFinished);
-void resolveMonsterAttack(Entity *player, Entity *monster);
+void resolveMonsterAttack(Entity *player, Entity *monster, bool *combatFinished);
 static void performTest(Entity *player, Entity *monster, bool *combatFinished, int testFlag);
 
 bool combat(Entity *player, Entity *monster, int testFlag) {
     bool combatFinished = false;
     if(testFlag == 0)   // Normal operation, no tests performed
     {
-        system("cls");
-        printf("\nCombat has commenced!\n\n");
-        while(!combatFinished)      //Combat loop, should initiative be decided by DEX-stat? Should it always be player first?
+        printf("\nCombat has commenced!\n");
+        while(!combatFinished)      
         {
-            printCombatMenu();                                  // Roughly implemented, should it be part of the loop?
-            playerAction(player, monster, &combatFinished);     // Begun, WIP
+            printCombatMenu();                                  
+            playerAction(player, monster, &combatFinished);     
             if(monster->currentHP > 0 && !combatFinished)
             {
-                monsterAction(player, monster);                 // Not started
+                monsterAction(player, monster, &combatFinished);                 
             }
-            if(player->currentHP <= 0) combatFinished = true;
-            break;
         }
     }else // Perform unit tests
     {
@@ -35,7 +32,7 @@ bool combat(Entity *player, Entity *monster, int testFlag) {
 }
 
 void printCombatMenu() {
-    printf("--- Choose your Action ---\n  1. Attack\n  2. Hide\n--------------------------\n");
+    printf("\n--- Choose your Action ---\n  1. Attack\n  2. Hide\n--------------------------\n");
 }
 
 void playerAction(Entity *player, Entity *monster, bool *combatFinished) {
@@ -95,17 +92,17 @@ void resolveHide(Entity *player, Entity *monster, bool *combatFinished) {
 
     if (r < s) // Player hides successfully
     {
-        printf("You successfully hid from the monster!");
+        printf("You successfully hid from the monster!\n");
         *combatFinished = true;
         // Combat should end and the monster should return to normal behaviour and not engage in combat again.
     }
     else // Player fails to hide
     {
-        printf("You failed to hide from the monster!");
+        printf("You failed to hide from the monster!\n");
     }
 }
 
-void monsterAction(Entity *player, Entity *monster)   {
+void monsterAction(Entity *player, Entity *monster, bool *combatFinished)   {
     // Discussion needed, what actions should the monster take? Always attack, always run away, 
     // weighted chart giving increased probabilities for certain outcomes dependent on monster type?
 
@@ -134,19 +131,20 @@ void monsterAction(Entity *player, Entity *monster)   {
     }
     else // Monster attacks
     {
-        resolveMonsterAttack(player, monster);
+        resolveMonsterAttack(player, monster, combatFinished);
     }
 }
 
-void resolveMonsterAttack(Entity *player, Entity *monster) {
+void resolveMonsterAttack(Entity *player, Entity *monster, bool *combatFinished) {
     if(monster->DMG - player->DEF > 0)  // If the attack goes through the player defense...
     {
         player->currentHP -= (monster->DMG - player->DEF);
         printf("You were wounded by the monster!\n");
+        printf("Current HP: %d\n", player->currentHP);
         if(player->currentHP <= 0)
         {
             printf("You have perished!\n");
-            // Should the game end at this point and restart? or should it just exit?
+            *combatFinished = true;
         }
     }else   // Attack is too weak...
     {

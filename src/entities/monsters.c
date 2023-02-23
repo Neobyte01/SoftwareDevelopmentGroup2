@@ -6,6 +6,7 @@ int noMonsters = 0;
 Entity *createBlargh() {
     Entity *blargh = createEntity(MONSTER, NONE);
     blargh->maxHP = 20;
+    blargh->currentHP = 20;
     blargh->DMG = 3;
 
     return blargh;

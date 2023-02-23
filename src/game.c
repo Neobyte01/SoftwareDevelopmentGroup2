@@ -55,24 +55,53 @@ void setupGame() {
 void gameLoop() {
     int exit = 0;
     int in_combat = 0;
+    int left_combat = 0;
     int bs;
     Entity *found_monster;
 
     while (true) {
+
         // Check for monsters in the same room as player.
-        for (int i = 0; i < noMonsters; i++) {
+        if (left_combat == 0) {
+            for (int i = 0; i < noMonsters; i++) {
             if (player->roomId == monsters[i]->roomId) {
                 in_combat = 1;
                 found_monster = monsters[i];
                 break;
             }
         }
+        }
 
         // Enter combat or exploration
-        if (in_combat == 1) {
+        if (in_combat == 1 && left_combat == 0) {
+            left_combat = 0;
             combat(player, found_monster, bs);
+
+            if (player->currentHP <= 0) // The player has died in combat
+            {
+                printf("You have perished and failed to escape! \n -----Game Over-----\n");
+                // Enter Death Menu
+            }
+            else if (found_monster->currentHP <= 0) // The player killed the monster
+            {
+                for (int i = 0; i < noMonsters; i++) {
+                    if (found_monster == monsters[i]){
+                        // Remove the monster from the list and move it to room 0
+                        // destroyEntity(found_monster);
+                    }
+                }
+            }
+            else // The player left combat, but did not kill the monster (hide)
+            {
+                printf("You are no longer in combat\n");
+                left_combat = 1;
+            }
+            
+            // Player is no longer in combat
+            in_combat = 0;
         } else {
             playerAction(player, &exit);
+            left_combat = 0;
 
             if (exit == 1) return;
 
