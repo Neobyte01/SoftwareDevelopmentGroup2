@@ -84,7 +84,7 @@ void resolveHide(Entity *player, Entity *monster, bool *combatFinished) {
 
     float s = monster->SEN;
     float d = player->DEX;
-    float c = round(100 * (s / d)); // Probability that the player hides successfully
+    float c = 100 * (s / d); // Probability that the player hides successfully
 
     // Should the chance be modified depending on if the monster has been attacked?
 
