@@ -8,6 +8,7 @@
 //
 // More options: https://ss64.com/nt/syntax-ansi.html
 
+#define ANSI_COLOR_GREY    "\x1b[90m"
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
 #define ANSI_COLOR_YELLOW  "\x1b[33m"
