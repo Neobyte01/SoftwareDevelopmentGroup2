@@ -6,6 +6,7 @@
 #include <time.h>
 #include <string.h>
 #include "map/map.h"
+#include "colors.h"
 #include "entities/player.h"
 #include "map/movement.h"
 
@@ -64,7 +65,7 @@ void playerAction(Entity *player, int *exitFlag) {
     int moved;
 
     while (true) {
-        printf("?: ");
+        printf(ANSI_COLOR_BLUE "?: " ANSI_COLOR_RESET);
         scanInput(input);
 
         if (strcmp(input, "help") == 0) {
