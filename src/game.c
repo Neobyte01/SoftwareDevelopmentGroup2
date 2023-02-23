@@ -6,6 +6,7 @@
 #include "entities/monsters.h"
 #include "actions/action.h"
 #include "combat.h"
+#include "colors.h"
 #include "map/map.h"
 #include "map/generation.h"
 
@@ -28,9 +29,8 @@ void runGame() {
             setupGame();
         
             puts("\nYou find yourself inside the sleeping quarters naked and alone.\n");            
-            printf("(type 'help' for helpful commands)\n\n");
+            printf(ANSI_COLOR_GREY "(type 'help' for helpful commands)\n\n" ANSI_COLOR_RESET);
             printMap(player);
-
             gameLoop();
             puts("\nEnding game...");
         case -1:
@@ -65,12 +65,12 @@ void gameLoop() {
         // Check for monsters in the same room as player.
         if (left_combat == 0) {
             for (int i = 0; i < noMonsters; i++) {
-            if (player->roomId == monsters[i]->roomId) {
-                in_combat = 1;
-                found_monster = monsters[i];
-                break;
+                if (player->roomId == monsters[i]->roomId) {
+                    in_combat = 1;
+                    found_monster = monsters[i];
+                    break;
+                }
             }
-        }
         }
 
         // Enter combat or exploration
