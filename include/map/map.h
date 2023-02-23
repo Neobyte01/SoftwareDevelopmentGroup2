@@ -19,9 +19,12 @@ enum RoomType {
 	HALL
 }; 
 
-const char* RoomNames[10];
-
-
+// Objects or furniture inside a room. Not items.
+typedef struct Object {
+	char *name;
+	char *description;
+	Entity *item;
+} Object; 
 
 // A structure to represent a room .
 typedef struct Room {
@@ -37,11 +40,8 @@ typedef struct Room {
 	char *description;
 
     struct Object* Objects; 
+	int noObjects;
 } Room;
-
-struct Object {
-	// we can add items to this section later 
-}; 
 
 // A structure to represent a Map
 // is an array of adjacency lists.
@@ -62,6 +62,18 @@ Map *globalMap;
 // returns: newly created graph.
 Map* createMap(int V);
 
+// Create an object.
+//
+// returns: newly created object.
+Object * createObject();
+
+// Add an object to a room.
+//
+// args:
+// - room: The room to add to.
+// - object: The object to add.
+void addObjectToRoom(Room *room, Object *object);
+
 // this function prints the Map, it can be modified later e.g. we can print the ID of each room in the boxes
 void printMap(Entity *entity);
 
@@ -71,17 +83,9 @@ void printMap(Entity *entity);
 // - room_id: Id of the room to describe.
 void describeRoom(struct Map *map, int room_id);
 
-// this function sets the default values and configuration for the Map, 
-// for now the defualt values are based on the Discord Map
-void defaultMap(struct Map* Map);
-
-
 // Connecting two rooms
 // input: 
 //		a: room a
 // 		b: room b
 // 		dir: in which direction room b should be connected to room b
 void connect_rooms(Room *a,Room *b,enum Direction dir);
-
-
-

@@ -7,6 +7,7 @@
 #include "actions/action.h"
 #include "combat.h"
 #include "map/map.h"
+#include "map/generation.h"
 
 // Setup a game
 static void setupGame();
@@ -41,7 +42,7 @@ void runGame() {
 }
 
 void setupGame() {
-    globalMap = createMap(15);
+    globalMap = generateMap();
 
     setupPlayer();
     player->roomId = 2;
