@@ -22,7 +22,7 @@ jobs:
       run: make test
       
     - name: Compile project
-      run: make run-compile
+      run: make
       
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
