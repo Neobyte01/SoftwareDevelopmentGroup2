@@ -2,7 +2,11 @@
 
 // Colors library
 // Print text in style.
-// Example usage: printf(ANSI_COLOR_BLUE "Blue text" ANSI_COLOR_RESET);
+//
+// Example usage: 
+//     printf(ANSI_COLOR_BLUE "Blue text" ANSI_COLOR_RESET);
+//
+// More options: https://ss64.com/nt/syntax-ansi.html
 
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"

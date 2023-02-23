@@ -65,7 +65,7 @@ void playerAction(Entity *player, int *exitFlag) {
     int moved;
 
     while (true) {
-        printf(ANSI_COLOR_BLUE "?: " ANSI_COLOR_RESET);
+        printf("?: ");
         scanInput(input);
 
         if (strcmp(input, "help") == 0) {
