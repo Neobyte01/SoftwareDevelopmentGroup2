@@ -6,9 +6,7 @@ static void playerAction(Entity *player, Entity *monster, bool *combatFinished);
 static void monsterAction(Entity *player, Entity *monster);
 static void resolvePlayerAttack(Entity *player, Entity *monster, bool *combatFinished);
 static void resolveHide(Entity *player, Entity *monster, bool *combatFinished);
-static void resolveFlee(Entity *player, Entity *monster, bool *combatFinished);
-static void resolveItemUse(Entity *player, Entity *monster, bool *combatFinished);
-static void resolveMonsterAttack(Entity *player, Entity *monster);
+void resolveMonsterAttack(Entity *player, Entity *monster);
 static void performTest(Entity *player, Entity *monster, bool *combatFinished, int testFlag);
 
 bool combat(Entity *player, Entity *monster, int testFlag) {
@@ -37,7 +35,7 @@ bool combat(Entity *player, Entity *monster, int testFlag) {
 }
 
 void printCombatMenu() {
-    printf("--- Choose your Action ---\n  1. Attack\n  2. Hide\n  3. Flee\n  4. Use Item\n--------------------------\n");
+    printf("--- Choose your Action ---\n  1. Attack\n  2. Hide\n--------------------------\n");
 }
 
 void playerAction(Entity *player, Entity *monster, bool *combatFinished) {
@@ -86,12 +84,9 @@ void resolvePlayerAttack(Entity *player, Entity *monster, bool *combatFinished) 
     }
 }
 
-void resolveHide(Entity *player, Entity *monster, bool *combatFinished) {
-    printf("Pardon the dust, this feature is not implemented yet (Hide).\n");
+void resolveHide(Entity *player, Entity *monster, bool *combatFinished) {    
 
-    // Get the chance that the player is found
     int s = 100 * (player->DEX / monster->SEN);
-
     // Should the chance be modified depending on if the monster has been attacked?
 
     // Get the random chance
