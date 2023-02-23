@@ -15,7 +15,8 @@ enum RoomType {
 	SLEEPING_QUARTER,
 	COMMON_ROOM,
 	TERMINAL_ROOM,
-	KITCHEN
+	KITCHEN,
+	HALL
 }; 
 
 const char* RoomNames[10];
