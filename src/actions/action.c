@@ -23,16 +23,6 @@ static void delay(int ms, int rms);
 // returns: Integer assigned to selected command.
 static int getCommand();
 
-// Compare input command with array of valid commands;
-// 
-// args:
-// - command: Input command.
-// - valid_commands: List of valid commands.
-// - noCommands: Number of valid commands.
-//
-// returns: Input command is found in array of valid commands.
-static bool commandCompare(char *command, char **valid_commands, int noCommands);
-
 // Scan user input.
 //
 // args:

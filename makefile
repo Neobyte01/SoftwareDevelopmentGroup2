@@ -40,13 +40,19 @@ run: all
 	./bin/game
 
 # Run test suite
-test: test-combat test-entities
+test: test-combat test-actions test-entities test-map
 
 # -- Custom test targets --
 
 test-combat:
 	$(CC) $(CFLAGS) tests/test_combat.c -o bin/test_combat
 	./bin/test_combat
+
+test-actions: test-actions-action
+
+test-actions-action: 
+	$(CC) $(CFLAGS) tests/actions/test_action.c -o bin/test_actions_action
+	./bin/test_actions_action
 
 test-entities: test-entities-player test-entities-monsters
 
