@@ -7,7 +7,7 @@
 #include <string.h>
 #include "actions/types.h"
 
-// This library handle the functions regarding entities.
+// This library handles the functions regarding entities.
 // Entities can be one of the following:
 // - Player Characters
 // - Monsters
