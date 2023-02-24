@@ -42,6 +42,7 @@ void playerAction(Entity *player, Entity *monster, bool *combatFinished) {
     {
         printf("?: ");
 
+        fflush(stdin);
         scanf("%d", &answer);
         puts("");
 
@@ -57,6 +58,7 @@ void playerAction(Entity *player, Entity *monster, bool *combatFinished) {
             break;
         default:
             printf("Please select a valid Action!\n");
+            fflush(stdin);
             break;
         }
     }
@@ -141,7 +143,7 @@ void monsterAction(Entity *player, Entity *monster, bool *combatFinished)   {
 }
 
 void resolveMonsterAttack(Entity *player, Entity *monster, bool *combatFinished) {
-    if(monster->DMG - player->DEF > 0)  // If the attack goes through the player defense...
+    if((monster->DMG - player->DEF) > 0)  // If the attack goes through the player defense...
     {
         player->currentHP -= (monster->DMG - player->DEF);
         printf("You were wounded by the monster!\n");
@@ -151,7 +153,8 @@ void resolveMonsterAttack(Entity *player, Entity *monster, bool *combatFinished)
             printf("You have perished!\n");
             *combatFinished = true;
         }
-    }else   // Attack is too weak...
+    }
+    else   // Attack is too weak...
     {
         printf("The monster's attack had no effect!\n");     // Should an attack always deal some minor damage (1 or more?)?
     }
@@ -169,6 +172,22 @@ void performTest(Entity *player, Entity *monster, bool *combatFinished, int test
             break;
         case 2: // Testing Hide-option (Player hides from Monster)
             resolveHide(player, monster, combatFinished);
+            break;
+        case 3:
+            while (!*combatFinished)
+            {
+                resolveMonsterAttack(player, monster, combatFinished);
+            }
+            break;
+        case 4:
+            while (!*combatFinished)
+            {
+                resolvePlayerAttack(player, monster, combatFinished);
+                if (!*combatFinished)
+                {
+                    resolveMonsterAttack(player, monster, combatFinished);
+                }
+            }
             break;
         default:
             printf("Invalid testFlag was set, please try again!\n");
