@@ -1,6 +1,8 @@
 # Text adventure game
 
-![build](https://github.com/Neobyte01/SoftwareDevelopmentGroup2/actions/workflows/test.yml/badge.svg)
+![build](https://github.com/Neobyte01/SoftwareDevelopmentGroup2/actions/workflows/Testing.yml/badge.svg)
+![build](https://github.com/Neobyte01/SoftwareDevelopmentGroup2/actions/workflows/Deployment.yml/badge.svg)
+
 
 A text-based rougelite (played from the CLI) where the player plays one of several characters stranded on a spaceship infested with monsters, with the end goal of escaping.
 The player will be able to traverse the ship by moving from room to room (grid-based system), and different rooms will have contextually appropriate options to interact with. The player will also be able to gather items/equipment which enables new approaches to problems faced during the escape. The monsters will vary depending on what part of the ship they inhabit and their behaviour will also be different depending on type of monster (Some may be territorial and only patrol a particular part of the map, while others may relentlessly hunt the player).
@@ -52,7 +54,12 @@ from a terminal. If "make setup" tells you that a directory called "bin" already
 
 The make instructions (targets) for handling this project. Works for both Macos and Windows.
 
-*Compile and run program*
+*Build program*
+```
+$ make
+```
+
+*Run program*
 ```
 $ make run
 ```

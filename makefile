@@ -2,10 +2,13 @@
 CC := gcc
 CFLAGS := -I include -fcommon src/actions/*c src/map/*c src/entities/*c src/*c
 
+ifeq ($(shell uname -s),Darwin)
+	CC := clang
+endif
 
 # Standard make target (i.e gets run when running just "make")
-all: run
-
+all: 
+	$(CC) $(CFLAGS) main.c -o bin/game
 
 # -- Setup coverage make target for windows and macos --
 
@@ -17,7 +20,6 @@ coverage:
 	gcovr
 
 else ifeq ($(shell uname -s),Darwin)
-	CC := clang
 
 coverage:
 	$(CC) -fprofile-instr-generate -fcoverage-mapping -D TEST $(CFLAGS) tests/**.c main.c -o game
@@ -34,13 +36,8 @@ lint:
 
 
 # Run the game
-run:
-	$(CC) $(CFLAGS) main.c -o bin/game
+run: all
 	./bin/game
-
-# Compiles the project
-run-compile:
-	$(CC) $(CFLAGS) main.c -o bin/game
 
 # Run test suite
 test: test-combat test-entities
