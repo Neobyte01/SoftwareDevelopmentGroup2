@@ -82,7 +82,7 @@ void playerAction(Entity *player, int *exitFlag) {
                 printf("\nYou walk westward. There you find ");
                 describeRoom(globalMap, player->roomId);
             } else {
-                printf("Can't move west. There's a wall in the way.\n\n");
+                printf("You can't move west. There's a wall in the way.\n\n");
             }
             break;
         } else if(commandCompare(input, move_east_commands, 2)){
@@ -91,7 +91,7 @@ void playerAction(Entity *player, int *exitFlag) {
                 printf("\nYou walk eastward. There you find ");
                 describeRoom(globalMap, player->roomId);
             } else {
-                printf("Can't move east. There's a wall in the way.\n\n");
+                printf("You can't move east. There's a wall in the way.\n\n");
             }
             break;
         } else if(commandCompare(input, move_north_commands, 2)){
@@ -100,7 +100,7 @@ void playerAction(Entity *player, int *exitFlag) {
                 printf("\nYou walk northward. There you find ");
                 describeRoom(globalMap, player->roomId);
             } else {
-                printf("Can't move north. There's a wall in the way.\n\n");
+                printf("You can't move north. There's a wall in the way.\n\n");
             }
             break;
         } else if(commandCompare(input, move_south_commands, 2)){
@@ -109,7 +109,7 @@ void playerAction(Entity *player, int *exitFlag) {
                 printf("\nYou walk southward. There you find ");
                 describeRoom(globalMap, player->roomId);
             } else {
-                printf("Can't move south. There's a wall in the way.\n\n");
+                printf("You can't move south. There's a wall in the way.\n\n");
             }
             break;
         } else if(commandCompare(input, map_commands, 4)){
