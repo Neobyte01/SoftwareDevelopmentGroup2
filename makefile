@@ -40,7 +40,7 @@ run: all
 	./bin/game
 
 # Run test suite
-test: test-combat test-entities
+test: test-combat test-entities test-map
 
 # -- Custom test targets --
 
@@ -60,6 +60,6 @@ test-entities-monsters:
 
 test-map: test-map-map
 
-test-map-map:
+test-map-map: 
 	$(CC) $(CFLAGS) tests/map/test_map.c -o bin/test_map_map
 	./bin/test_map_map
