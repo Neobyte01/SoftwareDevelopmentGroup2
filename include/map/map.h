@@ -40,6 +40,8 @@ typedef struct Room {
 	char *name;
 	char *description;
 
+	bool visited; 
+
     struct Object* Objects; 
 	int noObjects;
 } Room;
