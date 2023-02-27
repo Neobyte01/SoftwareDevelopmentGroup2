@@ -11,8 +11,10 @@ void testCommandCompare() {
     assert(!commandCompare("test", commands, 3));
 }
 
+#ifdef TEST
 int main(void) {
     puts("Running tests...");
     testCommandCompare();
     puts("Done.");
 }
+#endif

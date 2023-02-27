@@ -18,8 +18,10 @@ void testSetupPlayer() {
     destroyEntity(player);  // ! important to reset test. 
 }
 
+#ifdef TEST
 int main() {
     puts("Running tests...");
     testSetupPlayer();
     puts("Done.");
 }
+#endif

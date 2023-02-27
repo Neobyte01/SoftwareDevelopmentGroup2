@@ -1,18 +1,33 @@
+#include <assert.h>
 #include "map/map.h"
 #include "entities/entity.h"
 #include "map/generation.h"
-#include "entities/player.h"
-
+#include <string.h>
 #include <stdio.h>
 
-int main(void){
-	
-	struct Map *map = generateMap();
-	
-
-	setupPlayer();
-    player->roomId = 2;
-
-	printMap(player);
-	// ...
+void testMapDescription() {
+	assert(strcmp(globalMap->array[1].description, "A dark, dusty room.\n") == 0);
 }
+
+void testMapType() {
+	assert(globalMap->array[1].type == SLEEPING_QUARTER);
+}
+
+void testMapName() {
+	assert(strcmp(globalMap->array[1].name, "the North-Western Sleeping Quarter.\n") == 0);
+}
+
+void testMap() {
+  globalMap = generateMap(16);
+	testMapDescription();
+	testMapType();
+	testMapName();
+  free(globalMap);
+}
+
+#ifdef TEST
+int main(void){
+	testAll();
+	puts("Testing map done.");
+}
+#endif
