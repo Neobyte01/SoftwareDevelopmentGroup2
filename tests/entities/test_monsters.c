@@ -21,8 +21,10 @@ void testMonsterRegistry() {
     assert(noMonsters == 0);
 }
 
+#ifdef TEST
 int main() {
     puts("Running tests...");
     testMonsterRegistry();
     puts("Done.");
 }
+#endif

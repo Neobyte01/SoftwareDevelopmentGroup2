@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 
+#ifdef TEST
 int main(void){
 	
 	struct Map *map = generateMap();
@@ -16,3 +17,4 @@ int main(void){
 	printMap(player);
 	// ...
 }
+#endif TEST

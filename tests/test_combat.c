@@ -34,8 +34,10 @@ void testCombat(void)
     assert(1 == 1);
 }
 
+#ifdef TEST
 int main() {
     puts("Running tests...");
     testCombat();
     puts("Done.");
 }
+#endif

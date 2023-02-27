@@ -1,6 +1,7 @@
 # Generic commands
 CC := gcc
-CFLAGS := -I include -fcommon src/actions/*c src/map/*c src/entities/*c src/*c
+CFLAGS := -I include -fcommon src/actions/*.c src/map/*.c src/entities/*.c src/*.c
+TESTFLAGS := -D TEST $(CFLAGS)
 
 ifeq ($(shell uname -s),Darwin)
 	CC := clang
@@ -15,17 +16,17 @@ all:
 ifeq ($(OS),Windows_NT)
 
 coverage:
-	$(CC) --coverage -g -o0 -D TEST -g $(CFLAGS) tests/**.c main.c -o game
-	./game
+	$(CC) --coverage -g -o0 -g $(CFLAGS) tests/test_all.c -o bin/coverage
+	./bin/coverage
 	gcovr
 
 else ifeq ($(shell uname -s),Darwin)
 
 coverage:
-	$(CC) -fprofile-instr-generate -fcoverage-mapping -D TEST $(CFLAGS) tests/**.c main.c -o game
-	./game 
-	xcrun llvm-profdata merge -sparse bin/main.profraw -o bin/main.profdata
-	xcrun llvm-cov report .bin//main -instr-profile=bin/main.profdata    
+	$(CC) -fprofile-instr-generate -fcoverage-mapping $(CFLAGS) tests/test_all.c -o bin/coverage
+	./bin/coverage 
+	xcrun llvm-profdata merge -sparse default.profraw -o default.profdata
+	xcrun llvm-cov report bin/coverage -instr-profile=default.profdata    
 
 endif
 
@@ -40,46 +41,32 @@ run: all
 	./bin/game
 
 # Run test suite
-test: test-combat test-actions test-entities test-map
+test: 
+	$(CC) $(CFLAGS) tests/test_all.c -o bin/test_all
+	./bin/test_all
 
 # -- Custom test targets --
 
 test-combat:
-	$(CC) $(CFLAGS) tests/test_combat.c -o bin/test_combat
+	$(CC) $(TESTFLAGS) tests/test_combat.c -o bin/test_combat
 	./bin/test_combat
 
-test-actions: test-actions-action
-
 test-actions-action: 
-	$(CC) $(CFLAGS) tests/actions/test_action.c -o bin/test_actions_action
+	$(CC) $(TESTFLAGS) tests/actions/test_action.c -o bin/test_actions_action
 	./bin/test_actions_action
 
-test-entities: test-entities-player test-entities-monsters
-
 test-entities-player:
-	$(CC) $(CFLAGS) tests/entities/test_player.c -o bin/test_entities_player
+	$(CC) $(TESTFLAGS) tests/entities/test_player.c -o bin/test_entities_player
 	./bin/test_entities_player
 
 test-entities-monsters:
-	$(CC) $(CFLAGS) tests/entities/test_monsters.c -o bin/test_entities_monsters
+	$(CC) $(TESTFLAGS) tests/entities/test_monsters.c -o bin/test_entities_monsters
 	./bin/test_entities_monsters
 
-
-test-map: test-map-map 
-
 test-map-map:
-	$(CC) $(CFLAGS) tests/map/test_map.c -o bin/test_map_map
+	$(CC) $(TESTFLAGS) tests/map/test_map.c -o bin/test_map_map
 	./bin/test_map_map
 
-
-
-test-moveEntity: test-map-moveEntity 
-
-test-map-moveEntity:
-	$(CC) $(CFLAGS) tests/map/test_moveEntity.c -o bin/test_map_moveEntity
-	./bin/test_map_moveEntity
-
-
-
-
-
+test-map-movement:
+	$(CC) $(TESTFLAGS) tests/map/test_movement.c -o bin/test_map_movement
+	./bin/test_map_movement
