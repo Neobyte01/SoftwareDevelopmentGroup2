@@ -70,3 +70,7 @@ test-map-map:
 test-map-movement:
 	$(CC) $(TESTFLAGS) tests/map/test_movement.c -o bin/test_map_movement
 	./bin/test_map_movement
+
+test-map-generation:
+	$(CC) $(TESTFLAGS) tests/map/test_generation.c -o bin/test_map_generation
+	./bin/test_map_generation
