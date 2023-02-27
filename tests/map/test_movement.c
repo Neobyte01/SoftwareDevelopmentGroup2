@@ -17,6 +17,9 @@ void testMovement(){
 	printMap(player);
 
 	int moved = moveEntity(player, DOWN);
+	moved = moveEntity(player, LEFT);
+	moved = moveEntity(player, RIGHT);
+	moved = moveEntity(player, UP);
 
 	printMap(player);
 
