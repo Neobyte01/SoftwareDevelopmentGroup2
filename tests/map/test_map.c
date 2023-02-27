@@ -4,6 +4,7 @@
 #include "map/generation.h"
 #include <string.h>
 #include <stdio.h>
+#include <time.h>
 
 void testMapDescription() {
 	assert(strcmp(globalMap->array[1].description, "A dark, dusty room.\n") == 0);
@@ -15,6 +16,22 @@ void testMapType() {
 
 void testMapName() {
 	assert(strcmp(globalMap->array[1].name, "the North-Western Sleeping Quarter.\n") == 0);
+}
+
+void perfTestMapGen()
+{
+	printf("Tests generation of map\n");
+	clock_t start, end;
+	double total;
+	start = clock();
+	puts("Before");
+	struct Map *genMap = generateMap();
+	puts("After");
+	end = clock();
+	total = (double)(end - start)/CLOCKS_PER_SEC;
+	assert(total < 0.5);
+	printf("Elapsed time: %f\n", total);
+	free(genMap);
 }
 
 void testMap() {

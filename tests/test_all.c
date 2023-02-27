@@ -1,4 +1,5 @@
 #include "actions/test_action.c"
+#include "entities/test_entity.c"
 #include "entities/test_monsters.c"
 #include "entities/test_player.c"
 #include "map/test_map.c"
@@ -12,10 +13,9 @@ int main() {
     testMonsterRegistry();
     testSetupPlayer();
     testCombat();
+    testEntity();
     testGenerateMap();
-
-
     testMovement();
     testMap();
-    puts("Done.");
+    perfTestMapGen();
 }

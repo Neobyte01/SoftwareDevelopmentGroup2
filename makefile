@@ -63,6 +63,10 @@ test-entities-monsters:
 	$(CC) $(TESTFLAGS) tests/entities/test_monsters.c -o bin/test_entities_monsters
 	./bin/test_entities_monsters
 
+test-entities-entity:
+	$(CC) $(TESTFLAGS) tests/entities/test_entity.c -o bin/test_entities_entity
+	./bin/test_entities_entity
+
 test-map-map:
 	$(CC) $(TESTFLAGS) tests/map/test_map.c -o bin/test_map_map
 	./bin/test_map_map

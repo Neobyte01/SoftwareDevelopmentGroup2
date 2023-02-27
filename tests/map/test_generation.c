@@ -6,7 +6,6 @@
 void testGenerateMap() {
     struct Map *map = generateMap();
     assert(map != NULL);
-
     free(map);
 }
 
