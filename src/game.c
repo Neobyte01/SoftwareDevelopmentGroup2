@@ -89,7 +89,7 @@ void gameLoop() {
                     if (found_monster == monsters[i]){
                         for (int j = i + 1; j < noMonsters; j++) 
                         {
-                            monsters[j - 1] = monsters[j] // Remove the killed monster from the list of monsters
+                            monsters[j - 1] = monsters[j]; // Remove the killed monster from the list of monsters
                         }
                         found_monster->roomId = 0; // Move to non-existing room
                         noMonsters--;
