@@ -101,7 +101,7 @@ void gameLoop() {
             // Player is no longer in combat
             in_combat = 0;
         } else {
-            playerAction(player, &exit);
+            playerAction(player, &exit, NULL);
             left_combat = 0;
 
             if (exit == 1) return;
