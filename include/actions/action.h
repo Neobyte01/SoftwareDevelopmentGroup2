@@ -27,3 +27,13 @@ void playerAction(Entity *player, int *exitFlag);
 // args:
 // - monster: Monster which performs the action.
 void monsterAction(Entity *monster);
+
+// Compare input command with array of valid commands;
+// 
+// args:
+// - command: Input command.
+// - valid_commands: List of valid commands.
+// - noCommands: Number of valid commands.
+//
+// returns: Input command is found in array of valid commands.
+bool commandCompare(char *command, char **valid_commands, int noCommands);

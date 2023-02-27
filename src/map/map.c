@@ -21,6 +21,7 @@ struct Map* createMap(int V) {
 		for (int j = 0; j < MAX_OBJECTS; j++) {
 			Map->array[i].Objects[j].name = NULL;
 			Map->array[i].Objects[j].description = "N/A";
+			Map->array[i].visited = false; 
 			Map->array[i].Objects[j].item = NULL;
 		}
 		

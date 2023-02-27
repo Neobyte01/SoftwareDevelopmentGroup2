@@ -23,16 +23,6 @@ static void delay(int ms, int rms);
 // returns: Integer assigned to selected command.
 static int getCommand();
 
-// Compare input command with array of valid commands;
-// 
-// args:
-// - command: Input command.
-// - valid_commands: List of valid commands.
-// - noCommands: Number of valid commands.
-//
-// returns: Input command is found in array of valid commands.
-static bool commandCompare(char *command, char **valid_commands, int noCommands);
-
 // Scan user input.
 //
 // args:
@@ -82,7 +72,7 @@ void playerAction(Entity *player, int *exitFlag) {
                 printf("\nYou walk westward. There you find ");
                 describeRoom(globalMap, player->roomId);
             } else {
-                printf("Can't move west. There's a wall in the way.\n\n");
+                printf("You can't move west. There's a wall in the way.\n\n");
             }
             break;
         } else if(commandCompare(input, move_east_commands, 2)){
@@ -91,7 +81,7 @@ void playerAction(Entity *player, int *exitFlag) {
                 printf("\nYou walk eastward. There you find ");
                 describeRoom(globalMap, player->roomId);
             } else {
-                printf("Can't move east. There's a wall in the way.\n\n");
+                printf("You can't move east. There's a wall in the way.\n\n");
             }
             break;
         } else if(commandCompare(input, move_north_commands, 2)){
@@ -100,7 +90,7 @@ void playerAction(Entity *player, int *exitFlag) {
                 printf("\nYou walk northward. There you find ");
                 describeRoom(globalMap, player->roomId);
             } else {
-                printf("Can't move north. There's a wall in the way.\n\n");
+                printf("You can't move north. There's a wall in the way.\n\n");
             }
             break;
         } else if(commandCompare(input, move_south_commands, 2)){
@@ -109,7 +99,7 @@ void playerAction(Entity *player, int *exitFlag) {
                 printf("\nYou walk southward. There you find ");
                 describeRoom(globalMap, player->roomId);
             } else {
-                printf("Can't move south. There's a wall in the way.\n\n");
+                printf("You can't move south. There's a wall in the way.\n\n");
             }
             break;
         } else if(commandCompare(input, map_commands, 4)){
