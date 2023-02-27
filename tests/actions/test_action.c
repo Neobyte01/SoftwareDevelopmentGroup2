@@ -33,7 +33,7 @@ void testPlayerAction() {
     assert(player->roomId == 2);
 
     playerAction(player, &exitFlag, "move south");
-    moveUp(player->roomId);
+    moveUp(player->roomId, player);
     assert(player->roomId == 2);
 
     destroyEntity(player);
