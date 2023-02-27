@@ -18,6 +18,12 @@ void testMapName() {
 	assert(strcmp(globalMap->array[1].name, "the North-Western Sleeping Quarter.\n") == 0);
 }
 
+void testTerminalRoom() {
+	assert(globalMap->array[9].type == TERMINAL_ROOM);
+	assert(strcmp(globalMap->array[9].name, "the Terminal Room.\n") == 0);
+	assert(strcmp(globalMap->array[9].description, "A tiny, sultry room with a turned on CRT-monitor on a metal desk.\n") == 0);
+}
+
 void perfTestMapGen()
 {
 	printf("Tests generation of map\n");
@@ -39,12 +45,13 @@ void testMap() {
 	testMapDescription();
 	testMapType();
 	testMapName();
+	testTerminalRoom();
   free(globalMap);
 }
 
 #ifdef TEST
 int main(void){
-	testAll();
-	puts("Testing map done.");
+	testMap();
+	puts("Testing maps done.");
 }
 #endif
