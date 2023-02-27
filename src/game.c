@@ -87,8 +87,13 @@ void gameLoop() {
             {
                 for (int i = 0; i < noMonsters; i++) {
                     if (found_monster == monsters[i]){
-                        // Remove the monster from the list and move it to room 0
-                        // destroyEntity(found_monster);
+                        for (int j = i + 1; j < noMonsters; j++) 
+                        {
+                            monsters[j - 1] = monsters[j]; // Remove the killed monster from the list of monsters
+                        }
+                        found_monster->roomId = 0; // Move to non-existing room
+                        noMonsters--;
+                        destroyEntity(found_monster); // Free the killed monster from memory
                     }
                 }
             }

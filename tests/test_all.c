@@ -4,6 +4,7 @@
 #include "map/test_map.c"
 #include "map/test_generation.c"
 #include "test_combat.c"
+#include"map/test_movement.c"
 
 int main() {    
     puts("Running all tests...");
@@ -12,6 +13,9 @@ int main() {
     testSetupPlayer();
     testCombat();
     testGenerateMap();
+
+
+    testMovement();
     testMap();
     puts("Done.");
 }

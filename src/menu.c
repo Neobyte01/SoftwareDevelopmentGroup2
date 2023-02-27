@@ -17,7 +17,6 @@ int commandMainMenu() {
         switch (answer)
         {
         case 0:
-            system("cls");
             printMainMenu();
             printf("?: ");
             fflush(stdin);
