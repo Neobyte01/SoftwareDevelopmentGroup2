@@ -5,11 +5,16 @@
 #include "map/movement.h"
 #include <stdio.h>
 
+<<<<<<<<< Temporary merge branch 1
+=========
+void testMovement(){
+	globalMap = generateMap(16);
+>>>>>>>>> Temporary merge branch 2
 
 void testMovement(){
 
 	globalMap = generateMap(16);
-	
+
 
 	if(player == NULL) setupPlayer();
 
@@ -22,6 +27,7 @@ void testMovement(){
 	printMap(player);
 
 	free(globalMap);
+<<<<<<<<< Temporary merge branch 1
 
 }
 
@@ -34,5 +40,14 @@ int main(void){
     puts("Done.");
 	
 
+=========
+}
+
+#ifdef TEST
+int main(void){
+	puts("Running tests...");
+    testMovement();
+    puts("Done.");
+>>>>>>>>> Temporary merge branch 2
 }
 #endif
