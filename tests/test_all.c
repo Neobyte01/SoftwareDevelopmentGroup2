@@ -8,7 +8,7 @@
 
 int main() {    
     puts("Running all tests...");
-    testCommandCompare();
+    testActionLibrary();
     testMonsterRegistry();
     testSetupPlayer();
     testCombat();
