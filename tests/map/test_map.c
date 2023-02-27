@@ -17,7 +17,7 @@ void testMapName() {
 	assert(strcmp(globalMap->array[1].name, "the North-Western Sleeping Quarter.\n") == 0);
 }
 
-void testAll() {
+void testMap() {
   globalMap = generateMap(16);
 	testMapDescription();
 	testMapType();
