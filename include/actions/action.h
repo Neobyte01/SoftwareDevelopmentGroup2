@@ -16,7 +16,7 @@
 // args:
 // - player: Player which performs the action
 // - exitFlag: (1) when the user want to exit, (0) when not.
-void playerAction(Entity *player, int *exitFlag);
+void playerAction(Entity *player, int *exitFlag, char *testInput);
 
 // Let monster decide an action and act upon it.
 //

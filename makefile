@@ -63,6 +63,10 @@ test-entities-monsters:
 	$(CC) $(TESTFLAGS) tests/entities/test_monsters.c -o bin/test_entities_monsters
 	./bin/test_entities_monsters
 
+test-entities-entity:
+	$(CC) $(TESTFLAGS) tests/entities/test_entity.c -o bin/test_entities_entity
+	./bin/test_entities_entity
+
 test-map-map:
 	$(CC) $(TESTFLAGS) tests/map/test_map.c -o bin/test_map_map
 	./bin/test_map_map
@@ -70,3 +74,7 @@ test-map-map:
 test-map-movement:
 	$(CC) $(TESTFLAGS) tests/map/test_movement.c -o bin/test_map_movement
 	./bin/test_map_movement
+
+test-map-generation:
+	$(CC) $(TESTFLAGS) tests/map/test_generation.c -o bin/test_map_generation
+	./bin/test_map_generation

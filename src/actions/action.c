@@ -40,7 +40,7 @@ char *move_south_commands[] = {"move south", "move s"};
 char *map_commands[] = {"map", "show map", "view map", "open map"};
 char *search_room_commands[] = {"search", "search room", "look around"};
 
-void playerAction(Entity *player, int *exitFlag) {
+void playerAction(Entity *player, int *exitFlag, char *testInput) {
     // - search <object>
     // - take <object>
     // - read <object>
@@ -57,7 +57,12 @@ void playerAction(Entity *player, int *exitFlag) {
 
     while (true) {
         printf("?: ");
-        scanInput(input);
+
+        if (testInput != NULL) {
+            strcpy(input, testInput);
+        } else {
+            scanInput(input);
+        }
 
         if (strcmp(input, "help") == 0) {
             helpCommand();
@@ -112,6 +117,8 @@ void playerAction(Entity *player, int *exitFlag) {
         } else {
             printf("'%s' is not a recognized command. Type 'help' you're unsure.\n\n", input);    
         }
+
+        if (testInput != NULL) break;
     }
 
     free(input);
@@ -129,6 +136,9 @@ void monsterAction(Entity *monster) {
         monster->last_action = GROWL;
     } else if (choice == 1 && monster->last_action != SNIFF) {
         // sniff room
+        
+
+
         // if player track found then add target
         monster->last_action = SNIFF;
     } else if (choice <= 4) {

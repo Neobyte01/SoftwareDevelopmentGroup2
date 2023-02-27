@@ -45,13 +45,14 @@ void attachEntity(Entity* primary, Entity* secondary) {
     primary->DEX += secondary->DEX;
 
     // Items
-    primary->attached[primary->noAttached] = secondary;
+    //primary->attached[primary->noAttached] = secondary;   Needs troubleshooting
     primary->noAttached++;
 }
 
 void removeEntity(Entity* primary, Entity* secondary) {
     bool found = false;
 
+    /*  Needs troubleshooting
     for (int i = 0; i < primary->noAttached; i++) {
         if (secondary == primary->attached[i]) {
             for (int j = i; j < (primary->noAttached-1); j++) 
@@ -66,7 +67,8 @@ void removeEntity(Entity* primary, Entity* secondary) {
         printf("ERROR: Secondary entity not attached to primary entity\n");
         return;
     } 
-    
+    */
+   
     // Stats
     primary->maxHP -= secondary->maxHP;
     primary->currentHP -= secondary->currentHP;
