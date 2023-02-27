@@ -129,6 +129,9 @@ void monsterAction(Entity *monster) {
         monster->last_action = GROWL;
     } else if (choice == 1 && monster->last_action != SNIFF) {
         // sniff room
+        
+
+
         // if player track found then add target
         monster->last_action = SNIFF;
     } else if (choice <= 4) {

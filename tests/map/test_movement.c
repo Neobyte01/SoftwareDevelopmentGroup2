@@ -6,25 +6,33 @@
 
 #include <stdio.h>
 
-#ifdef TEST
-int main(void){
-	
-	struct Map *map = generateMap();
-	
-	enum Direction dir = DOWN;
 
-	setupPlayer();
+void testMovement(){
+
+	globalMap = generateMap(16);
+	
+
+	if(player == NULL) setupPlayer();
+
     player->roomId = 2;
 
 	printMap(player);
 
-
-	player->roomId = 3;;
+	int moved = moveEntity(player, DOWN);
 
 	printMap(player);
 
+	free(globalMap);
 
-    
+}
+
+
+#ifdef TEST
+int main(void){
+	
+	puts("Running tests...");
+    testMovement();
+    puts("Done.");
 	
 
 }
