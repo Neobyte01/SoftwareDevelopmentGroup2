@@ -3,14 +3,12 @@
 #include "map/generation.h"
 #include "entities/player.h"
 #include "map/movement.h"
-
 #include <stdio.h>
-
 
 void testMovement(){
 
 	globalMap = generateMap(16);
-	
+
 
 	if(player == NULL) setupPlayer();
 
@@ -23,7 +21,6 @@ void testMovement(){
 	printMap(player);
 
 	free(globalMap);
-
 }
 
 
@@ -34,6 +31,5 @@ int main(void){
     testMovement();
     puts("Done.");
 	
-
 }
 #endif
