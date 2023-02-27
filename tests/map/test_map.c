@@ -5,15 +5,15 @@
 #include <string.h>
 #include <stdio.h>
 
-void testMap1Description() {
+void testMapDescription() {
 	assert(strcmp(globalMap->array[1].description, "A dark, dusty room.\n") == 0);
 }
 
-void testMap1Type() {
+void testMapType() {
 	assert(globalMap->array[1].type == SLEEPING_QUARTER);
 }
 
-void testMap1Name() {
+void testMapName() {
 	assert(strcmp(globalMap->array[1].name, "the North-Western Sleeping Quarter.\n") == 0);
 }
 
@@ -26,9 +26,9 @@ void testTerminalRoom() {
 
 void testAll() {
   globalMap = generateMap(16);
-	testMap1Description();
-	testMap1Type();
-	testMap1Name();
+	testMapDescription();
+	testMapType();
+	testMapName();
 	testTerminalRoom();
   free(globalMap);
 }
