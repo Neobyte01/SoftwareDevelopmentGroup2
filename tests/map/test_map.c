@@ -24,7 +24,7 @@ void testTerminalRoom() {
 	assert(strcmp(globalMap->array[9].description, "A tiny, sultry room with a turned on CRT-monitor on a metal desk.\n") == 0);
 }
 
-void testAll() {
+void testMap() {
   globalMap = generateMap(16);
 	testMapDescription();
 	testMapType();
@@ -35,7 +35,7 @@ void testAll() {
 
 #ifdef TEST
 int main(void){
-	testAll();
+	testMap();
 	puts("Testing maps done.");
 }
 #endif
