@@ -8,16 +8,16 @@ int moveEntity(Entity *entity, enum Direction dir) {
 
     switch(dir){
         case UP:
-			moved = moveUp(id);
+			moved = moveUp(id,entity);
 			break;
         case DOWN:
-			moved = moveDown(id);
+			moved = moveDown(id,entity);
 			break;
         case RIGHT:
-			moved = moveRight(id);
+			moved = moveRight(id,entity);
 			break;
         case LEFT:
-			moved = moveLeft(id);
+			moved = moveLeft(id,entity);
 			break;
         default:
 			break;
@@ -26,36 +26,36 @@ int moveEntity(Entity *entity, enum Direction dir) {
 	return moved;
 }
 
-int moveLeft(int id) {
+int moveLeft(int id,Entity *entity) {
 	if(globalMap->array[id].left != NULL){
-		player->roomId =  globalMap->array[id].left->id;
+		entity->roomId =  globalMap->array[id].left->id;
 		return 1;
 	} else{
 		return 0;
 	}
 }
 
-int moveRight(int id) {
+int moveRight(int id,Entity *entity) {
 	if(globalMap->array[id].right != NULL){
-		player->roomId =  globalMap->array[id].right->id;
+		entity->roomId =  globalMap->array[id].right->id;
 		return 1;
 	} else {
 		return 0;
 	}
 }
 
-int moveUp(int id) {
+int moveUp(int id,Entity *entity) {
 	if(globalMap->array[id].up != NULL){
-		player->roomId =  globalMap->array[id].up->id;
+		entity->roomId =  globalMap->array[id].up->id;
 		return 1;
 	} else {
 		return 0;
 	}
 }
 
-int moveDown(int id){
+int moveDown(int id, Entity *entity){
 	if(globalMap->array[id].down != NULL){
-		player->roomId =  globalMap->array[id].down->id;
+		entity->roomId =  globalMap->array[id].down->id;
 		return 1;
 	} else {
 		return 0;

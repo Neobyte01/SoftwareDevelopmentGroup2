@@ -10,10 +10,8 @@ static void populateItems(struct Map* Map);
 
 struct Map *generateMap() {
     struct Map *map = createMap(15);
-
     defaultMap(map);
     populateItems(map);
-
     return map;
 }
 

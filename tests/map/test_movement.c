@@ -3,29 +3,36 @@
 #include "map/generation.h"
 #include "entities/player.h"
 #include "map/movement.h"
-
 #include <stdio.h>
 
-#ifdef TEST
-int main(void){
-	
-	struct Map *map = generateMap();
-	
-	enum Direction dir = DOWN;
+void testMovement(){
 
-	setupPlayer();
+	globalMap = generateMap(16);
+
+
+	if(player == NULL) setupPlayer();
+
     player->roomId = 2;
 
 	printMap(player);
 
-
-	player->roomId = 3;;
+	int moved = moveEntity(player, DOWN);
+	moved = moveEntity(player, LEFT);
+	moved = moveEntity(player, RIGHT);
+	moved = moveEntity(player, UP);
 
 	printMap(player);
 
+	free(globalMap);
+}
 
-    
+
+#ifdef TEST
+int main(void){
 	
-
+	puts("Running tests...");
+    testMovement();
+    puts("Done.");
+	
 }
 #endif

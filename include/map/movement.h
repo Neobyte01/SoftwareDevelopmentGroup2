@@ -25,25 +25,25 @@ int moveEntity(Entity *entity, enum Direction dir);
 //      id: players current roomID
 //
 // returns: if entity moved.
-int moveLeft(int id);
+int moveLeft(int id, Entity *entity);
 
 // move player to right-side of the mkap
 // input: 
 //      id: players current roomID
 //
 // returns: if entity moved.
-int moveRight(int id);
+int moveRight(int id, Entity *entity);
 
 // move player to the Up-side
 // input: 
 //      id: players current roomID
 //
 // returns: if entity moved.
-int moveUp(int id);
+int moveUp(int id, Entity *entity);
 
 // move to player to the Down-side of the map
 // input: 
 //      id: players current roomID
 //
 // returns: if entity moved.
-int moveDown(int id);
+int moveDown(int id,Entity *entity);

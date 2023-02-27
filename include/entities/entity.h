@@ -44,7 +44,7 @@ typedef struct Entity {
     // Items
     struct Entity** attached; // Attached entities
     int noAttached; // Number of attached entities
-    
+
     // Tracking
     int roomId;
     enum ActionType last_action;
