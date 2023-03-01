@@ -2,7 +2,7 @@
 
 ![build](https://github.com/Neobyte01/SoftwareDevelopmentGroup2/actions/workflows/Testing.yml/badge.svg)
 ![build](https://github.com/Neobyte01/SoftwareDevelopmentGroup2/actions/workflows/Deployment.yml/badge.svg)
-<a href="https://github.com/SoftwareDevelopmentGroup2/main/"LICENSE"><img alt="License: BSD-2-Clause" src="https://opensource.org/license/bsd-2-clause/license.svg"></a>
+
 
 
 
