@@ -55,6 +55,10 @@ test-actions-action:
 	$(CC) $(TESTFLAGS) tests/actions/test_action.c -o bin/test_actions_action
 	./bin/test_actions_action
 
+test-actions-interaction: 
+	$(CC) $(TESTFLAGS) tests/actions/test_interaction.c -o bin/test_actions_interaction
+	./bin/test_actions_interaction
+
 test-entities-player:
 	$(CC) $(TESTFLAGS) tests/entities/test_player.c -o bin/test_entities_player
 	./bin/test_entities_player

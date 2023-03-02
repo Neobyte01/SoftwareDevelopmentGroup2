@@ -36,17 +36,6 @@ struct Map* createMap(int V) {
 	return Map;
 }
 
-void printMap(Entity *entity) {
-    int id = entity->roomId;
-
-	printf("      [%c]         [%c]\n",check(2, id), check(10, id));
-	printf("   [%c][%c][%c][%c][%c][%c][%c]\n", check(1, id),check(3, id), check(5, id), check(6, id), check(9,id),check(11, id),check(15, id));
-	printf("      [%c]   [%c]   [%c]\n",check(4, id),check(7, id), check(12, id));
-	printf("            [%c]   [%c]\n",check(8, id),check(13, id));
-	printf("                  [%c]\n",check(13, id));
-	printf("            \n");
-}
-
 void describeRoom(struct Map *map, int room_id) {
 	printf("%s\n\n",  map->array[room_id].name);
 }

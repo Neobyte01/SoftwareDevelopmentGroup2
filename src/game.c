@@ -5,6 +5,7 @@
 #include "entities/player.h"
 #include "entities/monsters.h"
 #include "actions/action.h"
+#include "actions/interaction.h"
 #include "combat.h"
 #include "colors.h"
 #include "map/map.h"
@@ -30,7 +31,7 @@ void runGame() {
         
             puts("\nYou find yourself inside the sleeping quarters naked and alone.\n");            
             printf(ANSI_COLOR_GREY "(type 'help' for helpful commands)\n\n" ANSI_COLOR_RESET);
-            printMap(player);
+            outputTerminalMap();
             gameLoop();
             puts("\nEnding game...");
         case -1:

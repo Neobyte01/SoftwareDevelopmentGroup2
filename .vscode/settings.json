@@ -5,6 +5,8 @@
         "menu.h": "c",
         "stdlib.h": "c",
         "typeinfo": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "__tree": "c",
+        "map": "c"
     }
 }

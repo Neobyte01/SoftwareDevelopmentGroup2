@@ -89,9 +89,6 @@ Object * createObject();
 // - object: The object to add.
 void addObjectToRoom(Room *room, Object *object);
 
-// this function prints the Map, it can be modified later e.g. we can print the ID of each room in the boxes
-void printMap(Entity *entity);
-
 // Describe the room to the player.
 //
 // args:

@@ -108,9 +108,7 @@ void playerAction(Entity *player, int *exitFlag, char *testInput) {
             }
             break;
         } else if(commandCompare(input, map_commands, 4)){
-            printf("Opening the map...\n\n");
-            // delay(200, 20);
-            printMap(player);
+            outputTerminalMap();
             // Doesn't affect game loop
         } else if(commandCompare(input, search_room_commands, 3)){
             searchRoom(player, globalMap);
