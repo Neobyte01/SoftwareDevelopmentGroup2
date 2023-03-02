@@ -46,7 +46,7 @@ void setupGame() {
     globalMap = generateMap();
 
     setupPlayer();
-    player->roomId = 2;
+    player->roomId = 4;
 
     Entity *blargh = createBlargh();
     blargh->roomId = 12;

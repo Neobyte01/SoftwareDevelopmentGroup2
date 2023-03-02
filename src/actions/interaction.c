@@ -30,11 +30,9 @@ static void destroyGridMap(int* grid_map) {
 static int *expandMap(int *grid_map, int *width, int *height, int x_inc, int y_inc, int x_off, int y_off) {
     int *new_map = createGridMap((*width)+x_inc, (*height)+y_inc);
 
-    int width_offset = x_inc - x_off;
-
     for (int x = 0; x < (*width); x++)
         for (int y = 0; y < (*height); y++)
-            new_map[(x+x_off) + (y+y_off) * ((*width)+width_offset)] = grid_map[x + y * (*width)];
+            new_map[(x+x_off) + (y+y_off) * ((*width)+x_inc)] = grid_map[x + y * (*width)];
 
     (*width) += x_inc;
     (*height) += y_inc;
