@@ -65,6 +65,12 @@ Map *globalMap;
 // returns: newly created graph.
 Map* createMap(int V);
 
+// A utility function that frees a map from memory
+//
+// args:
+// - map: Pointer to the map to destroy
+void destroyMap(struct Map* map);
+
 // Create an object.
 //
 // returns: newly created object.

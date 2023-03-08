@@ -16,6 +16,9 @@ static void setupGame();
 // Main gameplay loop.
 static void gameLoop();
 
+// Resets gameplay loop
+static void resetLoop();
+
 void runGame() {
     // Game start and reset loop.
     while (true) {
@@ -32,7 +35,6 @@ void runGame() {
             printf(ANSI_COLOR_GREY "(type 'help' for helpful commands)\n\n" ANSI_COLOR_RESET);
             printMap(player);
             gameLoop();
-            puts("\nEnding game...");
         case -1:
             exit(0);
         default:
@@ -53,14 +55,29 @@ void setupGame() {
     addMonster(blargh);
 }
 
+void resetLoop() {
+    // Remove current player entity from memory
+    destroyEntity(player);
+
+    // Remove all monsters from memory
+    for (int i = 0; i < noMonsters; i++) {
+        destroyEntity(monsters[i]);
+    }
+    noMonsters = 0;
+
+    // Remove map from memory
+    destroyMap(globalMap);
+}
+
 void gameLoop() {
     int exit = 0;
     int in_combat = 0;
     int left_combat = 0;
     int bs;
+    bool loop = true;
     Entity *found_monster;
 
-    while (true) {
+    while (loop == true) {
 
         // Check for monsters in the same room as player.
         if (left_combat == 0) {
@@ -80,8 +97,38 @@ void gameLoop() {
 
             if (player->currentHP <= 0) // The player has died in combat
             {
-                printf("You have perished and failed to escape! \n -----Game Over-----\n");
-                // Enter Death Menu
+                printf("\nYou have perished and failed to escape! \n ----- Game Over ----- \n\n");
+                char deathCommand;
+
+                // printf("1 to try again. Anything else to return to main menu\n");
+                // printf("?: ");
+                // fflush(stdin);
+                // scanf("%c", &deathCommand);
+
+                deathCommand = '0'; // Set to non 1 value
+            
+                switch (deathCommand)
+                {
+                case '1': // Start a new "run"
+                    
+                    // Rest Loop and setup new game
+                    resetLoop();
+                    setupGame();
+
+                    // Run new game
+                    puts("\nYou find yourself inside the sleeping quarters naked and alone.\n");            
+                    printf(ANSI_COLOR_GREY "(type 'help' for helpful commands)\n\n" ANSI_COLOR_RESET);
+                    printMap(player);
+                    gameLoop();
+
+                    // In case they exit from that game loop (return to main menu), any outer loop will also be exited
+                    loop = false;
+                    break;
+                default: // Return to main menu
+                    printf("Returning to main menu...\n\n");
+                    resetLoop();
+                    loop = false;
+                }
             }
             else if (found_monster->currentHP <= 0) // The player killed the monster
             {

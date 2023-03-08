@@ -150,7 +150,6 @@ void resolveMonsterAttack(Entity *player, Entity *monster, bool *combatFinished)
         printf("Current HP: %d\n", player->currentHP);
         if(player->currentHP <= 0)
         {
-            printf("You have perished!\n");
             *combatFinished = true;
         }
     }
