@@ -31,7 +31,7 @@ $ choco install python make mingw
 $ pip install gcovr
 $ git clone https://github.com/Neobyte01/SoftwareDevelopmentGroup2
 $ cd SoftwareDevelopmentGroup2
-$ make setup
+$ make
 ```
 from a terminal. If "make setup" tells you that a directory called "bin" already exists, just ignore it. From there you can run the program via make (described in our running instructions).
 
@@ -47,7 +47,7 @@ and then run:
 $ brew install make llvm gnu-indent
 $ git clone https://github.com/Neobyte01/SoftwareDevelopmentGroup2
 $ cd SoftwareDevelopmentGroup2
-$ make setup
+$ make
 ```
 
 from a terminal. If "make setup" tells you that a directory called "bin" already exists, just ignore it. From there you can run the program via make (descibed in our running instructions).
