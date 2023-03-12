@@ -36,6 +36,11 @@ struct Map* createMap(int V) {
 	return Map;
 }
 
+void destroyMap(struct Map *map) {
+	free(map->array);
+	free(map);
+}
+
 void printMap(Entity *entity) {
     int id = entity->roomId;
 
